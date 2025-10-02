@@ -12,7 +12,7 @@ Given its sandbox nature, consider the use of this app to be cheating.
 
 Once launched, use the 'Open save file' button (top-right) and select your save game:
 
-  %USERPROFILE%\AppData\LocalLow\SadSocket\9Kings
+  `%USERPROFILE%\AppData\LocalLow\SadSocket\9Kings`
 
 Here's an example of what you'll see after loading it:
 
@@ -67,12 +67,7 @@ Feel free to post issues. Feel even more free to make pull requests with any typ
    npm install
    ```
 
-2. Build the application:
-   ```bash
-   npm run build
-   ```
-
-3. Create distributable packages:
+2. Build and create distributable packages:
    - **Windows:** `npm run build:win` (creates installer and portable .exe)
    - **macOS:** `npm run build:mac` (creates .dmg)
    - **Linux:** `npm run build:linux` (creates AppImage, snap, deb)
