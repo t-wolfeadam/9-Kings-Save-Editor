@@ -12,7 +12,7 @@ Given its sandbox nature, consider the use of this app to be cheating.
 
 Once launched, use the 'Open save file' button (top-right) and select your save game:
 
-  `%USERPROFILE%\AppData\LocalLow\SadSocket\9Kings`
+  `%USERPROFILE%\AppData\LocalLow\SadSocket\9Kings\GameSnapshot.json`
 
 Here's an example of what you'll see after loading it:
 
