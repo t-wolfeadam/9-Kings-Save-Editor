@@ -1,0 +1,674 @@
+[
+    {
+        "name": "Pagoda",
+        "displayName": "Pagoda",
+        "type": "base",
+        "king": "Blood",
+        "description": "Summons imps onto the battlefield.",
+        "imagePath": "./assets/Card_Blood_00.png"
+    },
+    {
+        "name": "Vampirism",
+        "displayName": "Vampirism",
+        "type": "enchantment",
+        "king": "Blood",
+        "description": "Unit's attacks heal it for 20% of damage dealt.",
+        "imagePath": "./assets/Card_Blood_01.png"
+    },
+    {
+        "name": "Cemetery",
+        "displayName": "Cemetery",
+        "type": "tower",
+        "king": "Blood",
+        "description": "In an adjacent unit dies in battle, summons an imp to fight in its place.",
+        "imagePath": "./assets/Card_Blood_02.png"
+    },
+    {
+        "name": "Imp",
+        "displayName": "Imp",
+        "type": "troop",
+        "king": "Blood",
+        "description": "Fast and aggressive troop with many small units.",
+        "imagePath": "./assets/Card_Blood_03.png"
+    },
+    {
+        "name": "Mangler",
+        "displayName": "Mangler",
+        "type": "tower",
+        "king": "Blood",
+        "description": "Area damage turret. Every year, sacrifices an adjacent unit per level to gain +2 damage.",
+        "imagePath": "./assets/Card_Blood_04.png"
+    },
+    {
+        "name": "Carnage",
+        "displayName": "Carnage",
+        "type": "enchantment",
+        "king": "Blood",
+        "description": "Unit explodes when killed, dealing 10% HP as area damage.",
+        "imagePath": "./assets/Card_Blood_05.png"
+    },
+    {
+        "name": "Bomber",
+        "displayName": "Bomber",
+        "type": "troop",
+        "king": "Blood",
+        "description": "Runs towards the enemy and explodes, dealing area damage.",
+        "imagePath": "./assets/Card_Blood_06.png"
+    },
+    {
+        "name": "Demons_Altar",
+        "displayName": "Demon's Altar",
+        "type": "tower",
+        "king": "Blood",
+        "description": "Summons one demon per level. For each dead ally, grows permanently 0.5% stronger.",
+        "imagePath": "./assets/Card_Blood_07.png"
+    },
+    {
+        "name": "Sacrifice",
+        "displayName": "Sacrifice",
+        "type": "tome",
+        "king": "Blood",
+        "description": "Destroy target plot to level up adjacent plots.",
+        "imagePath": "./assets/Card_Blood_08.png"
+    },
+    {
+        "name": "Palace",
+        "displayName": "Palace",
+        "type": "base",
+        "king": "Greed",
+        "description": "Destroy target plot to level up adjacent plots.",
+        "imagePath": "./assets/Card_Greed_00.png"
+    },
+    {
+        "name": "Over_invest",
+        "displayName": "Over-invest",
+        "type": "enchantment",
+        "king": "Greed",
+        "description": "Spend 30 gold to increase every stat of a troop or tower by 15%.",
+        "imagePath": "./assets/Card_Greed_01.png"
+    },
+    {
+        "name": "Dispenser",
+        "displayName": "Dispenser",
+        "type": "tower",
+        "king": "Greed",
+        "description": "Single-target tower. Gains +1% attack speed for each 1 gold you receive.",
+        "imagePath": "./assets/Card_Greed_02.png"
+    },
+    {
+        "name": "Thief",
+        "displayName": "Thief",
+        "type": "troop",
+        "king": "Greed",
+        "description": "Assassin troop that jumps to enemy's backline.",
+        "imagePath": "./assets/Card_Greed_03.png"
+    },
+    {
+        "name": "Beacon",
+        "displayName": "Beacon",
+        "type": "building",
+        "king": "Greed",
+        "description": "Every year, adds +2% attack speed to adjacent troops and buildings.",
+        "imagePath": "./assets/Card_Greed_04.png"
+    },
+    {
+        "name": "Midas_Touch",
+        "displayName": "Midas Touch",
+        "type": "",
+        "king": "Greed",
+        "description": "When this troop kills, there's a 2% chance to receive 1 gold.",
+        "imagePath": "./assets/Card_Greed_05.png"
+    },
+    {
+        "name": "Mercenary",
+        "displayName": "Mercenary",
+        "type": "troop",
+        "king": "Greed",
+        "description": "Strong but fickle warriors for hire. You always have 1 unit for each 15 gold you own.",
+        "imagePath": "./assets/Card_Greed_06.png"
+    },
+    {
+        "name": "Vault",
+        "displayName": "Vault",
+        "type": "building",
+        "king": "Greed",
+        "description": "Receive gold at the end of every year.",
+        "imagePath": "./assets/Card_Greed_07.png"
+    },
+    {
+        "name": "Mortage",
+        "displayName": "Mortage",
+        "type": "tome",
+        "king": "Greed",
+        "description": "Destroy target plot to receive to gold for each level it had.",
+        "imagePath": "./assets/Card_Greed_08.png"
+    },
+    {
+        "name": "Treant",
+        "displayName": "Treant",
+        "type": "base",
+        "king": "Nature",
+        "description": "Creates a healing area on the ground.",
+        "imagePath": "./assets/Card_Nature_00.png"
+    },
+    {
+        "name": "Forest",
+        "displayName": "Forest",
+        "type": "building",
+        "king": "Nature",
+        "description": "Every year, adds +2% HP to adjacent troops.",
+        "imagePath": "./assets/Card_Nature_01.png"
+    },
+    {
+        "name": "Procreate",
+        "displayName": "Procreate",
+        "type": "tome",
+        "king": "Nature",
+        "description": "Adds 9 units to the selected troop.",
+        "imagePath": "./assets/Card_Nature_02.png"
+    },
+    {
+        "name": "Mycelium",
+        "displayName": "Mycelium",
+        "type": "building",
+        "king": "Nature",
+        "description": "Summons a fighting spore every 5 seconds in battle. Spores accumulate every battle.",
+        "imagePath": "./assets/Card_Nature_03.png"
+    },
+    {
+        "name": "Elf",
+        "displayName": "Elf",
+        "type": "troop",
+        "king": "Nature",
+        "description": "Ranged sniper troop. Always attacks the most distant target.",
+        "imagePath": "./assets/Card_Nature_04.png"
+    },
+    {
+        "name": "Poison_Vial",
+        "displayName": "Poison Vial",
+        "type": "enchantment",
+        "king": "Nature",
+        "description": "Unit's attacks apply 1 poison stack to the enemy.",
+        "imagePath": "./assets/Card_Nature_05.png"
+    },
+    {
+        "name": "Orchard",
+        "displayName": "Orchard",
+        "type": "tower",
+        "king": "Nature",
+        "description": "Creates roots that trap enemies.",
+        "imagePath": "./assets/Card_Nature_06.png"
+    },
+    {
+        "name": "Clone",
+        "displayName": "Clone",
+        "type": "tome",
+        "king": "Nature",
+        "description": "Clone the card of the selected plot.",
+        "imagePath": "./assets/Card_Nature_07.png"
+    },
+    {
+        "name": "Boar",
+        "displayName": "Boar",
+        "type": "troop",
+        "king": "Nature",
+        "description": "Can be mounted by adjacent troops. For each 1 HP it has, increases rider stats by 1%.",
+        "imagePath": "./assets/Card_Nature_08.png"
+    },
+    {
+        "name": "Warlord",
+        "displayName": "Warlord",
+        "type": "base",
+        "king": "Nomads",
+        "description": "Shoots banners that add Warlord's stats to target allies",
+        "imagePath": "./assets/Card_Nomads_00.png"
+    },
+    {
+        "name": "Camp",
+        "displayName": "Camp",
+        "type": "building",
+        "king": "Nomads",
+        "description": "When a card is placed on an empty plot Camp's adjacent plots gain stats",
+        "imagePath": "./assets/Card_Nomads_01.png"
+    },
+    {
+        "name": "Dragons_Den",
+        "displayName": "Dragon's Den",
+        "type": "tower",
+        "king": "Nomads",
+        "description": "Does a single attack per battle in a line. Gets 20% stronger each time a plot is destroyed",
+        "imagePath": "./assets/Card_Nomads_02.png"
+    },
+    {
+        "name": "Mob",
+        "displayName": "Mob",
+        "type": "troop",
+        "king": "Nomads",
+        "description": "Gains a unit for each adjacent unit added",
+        "imagePath": "./assets/Card_Nomads_03.png"
+    },
+    {
+        "name": "Migration",
+        "displayName": "Migration",
+        "type": "tome",
+        "king": "Nomads",
+        "description": "Moves target to an empty adjacent plot and gives +10% Damage and HP",
+        "imagePath": "./assets/Card_Nomads_04.png"
+    },
+    {
+        "name": "Frost",
+        "displayName": "Frost",
+        "type": "enchantment",
+        "king": "Nomads",
+        "description": "Attacks slow the enemy's movement and attack speed by 20%",
+        "imagePath": "./assets/Card_Nomads_05.png"
+    },
+    {
+        "name": "Swords",
+        "displayName": "Swords",
+        "type": "tome",
+        "king": "Nomads",
+        "description": "Adds 5 damage or +5% damage, whichever's higher",
+        "imagePath": "./assets/Card_Nomads_06.png"
+    },
+    {
+        "name": "Shields",
+        "displayName": "Shields",
+        "type": "tome",
+        "king": "Nomads",
+        "description": "Adds 10 health or +10% health, whichever's higher",
+        "imagePath": "./assets/Card_Nomads_07.png"
+    },
+    {
+        "name": "Raptor",
+        "displayName": "Raptor",
+        "type": "troop",
+        "king": "Nomads",
+        "description": "Can be mounted by adjacent troops. Sums its stats with the rider and pierces through the frontline",
+        "imagePath": "./assets/Card_Nomads_08.png"
+    },
+    {
+        "name": "Castle",
+        "displayName": "Castle",
+        "type": "base",
+        "king": "Nothing",
+        "description": "Hurls a stone projectile onto your enemies.",
+        "imagePath": "./assets/Card_Nothing_00.png"
+    },
+    {
+        "name": "Steel_Coat",
+        "displayName": "Steel Coat",
+        "type": "enchantment",
+        "king": "Nothing",
+        "description": "Cancels the first hit the target unit would take every battle.",
+        "imagePath": "./assets/Card_Nothing_01.png"
+    },
+    {
+        "name": "Farm",
+        "displayName": "Farm",
+        "type": "building",
+        "king": "Nothing",
+        "description": "Every year, adds units to one adjacent troop.",
+        "imagePath": "./assets/Card_Nothing_02.png"
+    },
+    {
+        "name": "Soldier",
+        "displayName": "Soldier",
+        "type": "troop",
+        "king": "Nothing",
+        "description": "Well-balanced melee troop.",
+        "imagePath": "./assets/Card_Nothing_03.png"
+    },
+    {
+        "name": "Archer",
+        "displayName": "Archer",
+        "type": "troop",
+        "king": "Nothing",
+        "description": "Deals weak but fast ranged damage.",
+        "imagePath": "./assets/Card_Nothing_04.png"
+    },
+    {
+        "name": "Scout_Tower",
+        "displayName": "Scout Tower",
+        "type": "tower",
+        "king": "Nothing",
+        "description": "Shoots powerful single-target arrows.",
+        "imagePath": "./assets/Card_Nothing_05.png"
+    },
+    {
+        "name": "Paladin",
+        "displayName": "Paladin",
+        "type": "troop",
+        "king": "Nothing",
+        "description": "Highly defensive melee troop.",
+        "imagePath": "./assets/Card_Nothing_06.png"
+    },
+    {
+        "name": "Blacksmith",
+        "displayName": "Blacksmith",
+        "type": "building",
+        "king": "Nothing",
+        "description": "Every year adds attack damage to adjacent troops and buildings.",
+        "imagePath": "./assets/Card_Nothing_07.png"
+    },
+    {
+        "name": "Wildcard",
+        "displayName": "Wildcard",
+        "type": "tome",
+        "king": "Nothing",
+        "description": "Levels up target plot.",
+        "imagePath": "./assets/Card_Nothing_08.png"
+    },
+    {
+        "name": "Converter",
+        "displayName": "Converter",
+        "type": "tower",
+        "king": "Progress",
+        "description": "Turns enemies into rats fighting for you. Rats inherit Converter's stats.",
+        "imagePath": "./assets/Card_Progress_00.png"
+    },
+    {
+        "name": "Mothership",
+        "displayName": "Mothership",
+        "type": "base",
+        "king": "Progress",
+        "description": "Flies towards enemies like a unit. Can be controlled on the battlefield.",
+        "imagePath": "./assets/Card_Progress_01.png"
+    },
+    {
+        "name": "Overhaul",
+        "displayName": "Overhaul",
+        "type": "tome",
+        "king": "Progress",
+        "description": "Destroy target plot to level up two random plots. Each use, one more plot is leveled up.",
+        "imagePath": "./assets/Card_Progress_02.png"
+    },
+    {
+        "name": "Concabulator",
+        "displayName": "Concabulator",
+        "type": "building",
+        "king": "Progress",
+        "description": "When this building reaches level 3, it levels up all your plots.",
+        "imagePath": "./assets/Card_Progress_03.png"
+    },
+    {
+        "name": "Precision",
+        "displayName": "Precision",
+        "type": "enchantment",
+        "king": "Progress",
+        "description": "One hit is always critical.",
+        "imagePath": "./assets/Card_Progress_04.png"
+    },
+    {
+        "name": "Defender",
+        "displayName": "Defender",
+        "type": "troop",
+        "king": "Progress",
+        "description": "Tanker unit that doesn't attack but reflects all taken damage.",
+        "imagePath": "./assets/Card_Progress_05.png"
+    },
+    {
+        "name": "Reinforce",
+        "displayName": "Reinforce",
+        "type": "enchantment",
+        "king": "Progress",
+        "description": "Unit gains +1% damage whenever any plot levels up.",
+        "imagePath": "./assets/Card_Progress_06.png"
+    },
+    {
+        "name": "Lab_Rat",
+        "displayName": "Lab Rat",
+        "type": "troop",
+        "king": "Progress",
+        "description": "Disposable melee troop. Levels up whenever adjacent plots level up. Deals damage to bosses instead.",
+        "imagePath": "./assets/Card_Progress_07.png"
+    },
+    {
+        "name": "Executioner",
+        "displayName": "Executioner",
+        "type": "troop",
+        "king": "Progress",
+        "description": "Ranged troop. Always attacks the enemy with the lowest health.",
+        "imagePath": "./assets/Card_Progress_08.png"
+    },
+    {
+        "name": "Scapegoat",
+        "displayName": "Scapegoat",
+        "type": "troop",
+        "king": "Special",
+        "description": "Passive backline unit. If killed in battle, generates 3 gold per level.",
+        "imagePath": "./assets/Card_Special_01.png"
+    },
+    {
+        "name": "Temple",
+        "displayName": "Temple",
+        "type": "building",
+        "king": "Special",
+        "description": "Increases 10% of a random stat of a random plot.",
+        "imagePath": "./assets/Card_Special_02.png"
+    },
+    {
+        "name": "Patronage",
+        "displayName": "Patronage",
+        "type": "tome",
+        "king": "Special",
+        "description": "Levels up your base plot by 3 levels.",
+        "imagePath": "./assets/Card_Special_03.png"
+    },
+    {
+        "name": "Shrine",
+        "displayName": "Shrine",
+        "type": "building",
+        "king": "Special",
+        "description": "Spends 9 gold every year to level up a random plot. Costs 3 less gold per level.",
+        "imagePath": "./assets/Card_Special_04.png"
+    },
+    {
+        "name": "Ogre",
+        "displayName": "Ogre",
+        "type": "troop",
+        "king": "Special",
+        "description": "Lonely unit. Every year, increases 5% of all stats for each adjacent empty plot.",
+        "imagePath": "./assets/Card_Special_05.png"
+    },
+    {
+        "name": "Razing",
+        "displayName": "Razing",
+        "type": "tome",
+        "king": "Special",
+        "description": "Destroys target plot forever. Automatically triggers a Royal Council event.",
+        "imagePath": "./assets/Card_Special_06.png"
+    },
+    {
+        "name": "Gigantify",
+        "displayName": "Gigantify",
+        "type": "tome",
+        "king": "Special",
+        "description": "Doubles the size, damage, and HP of target troop.",
+        "imagePath": "./assets/Card_Special_07.png"
+    },
+    {
+        "name": "Slime",
+        "displayName": "Slime",
+        "type": "troop",
+        "king": "Special",
+        "description": "Proliferating troop that multiplies itself to one empty adjacent plot every year.",
+        "imagePath": "./assets/Card_Special_08.png"
+    },
+    {
+        "name": "Unify",
+        "displayName": "Unify",
+        "type": "tome",
+        "king": "Special",
+        "description": "Sacrifices all troops adjacent to target. Target plot gains the number of units sacrificed.",
+        "imagePath": "./assets/Card_Special_10.png"
+    },
+    {
+        "name": "Echoform",
+        "displayName": "Echoform",
+        "type": "tome",
+        "king": "Special",
+        "description": "Duplicates target plot and all its stats to one empty adjacent plot.",
+        "imagePath": "./assets/Card_Special_11.png"
+    },
+    {
+        "name": "Haste",
+        "displayName": "Haste",
+        "type": "tome",
+        "king": "Special",
+        "description": "Increases target's movement speed by 200%.",
+        "imagePath": "./assets/Card_Special_12.png"
+    },
+    {
+        "name": "X_Ray",
+        "displayName": "X-Ray",
+        "type": "tome",
+        "king": "Special",
+        "description": "Levels up all plots diagonal to the target plot.",
+        "imagePath": "./assets/Card_Special_15.png"
+    },
+    {
+        "name": "Citadel",
+        "displayName": "Citadel",
+        "type": "base",
+        "king": "Spells",
+        "description": "Strikes your opponents with chaining lightning bolts.",
+        "imagePath": "./assets/Card_Spells_00.png"
+    },
+    {
+        "name": "Static",
+        "displayName": "Static",
+        "type": "enchantment",
+        "king": "Spells",
+        "description": "Unit's attacks trigger a lightning chain. Deals +1 damage and +1 chain per stack.",
+        "imagePath": "./assets/Card_Spells_01.png"
+    },
+    {
+        "name": "Spire",
+        "displayName": "Spire",
+        "type": "tower",
+        "king": "Spells",
+        "description": "Heals your units that are closest to death during battle.",
+        "imagePath": "./assets/Card_Spells_02.png"
+    },
+    {
+        "name": "Combustion",
+        "displayName": "Combustion",
+        "type": "enchantment",
+        "king": "Spells",
+        "description": "Unit causes area damage equal to 20% of its attack when it kills an enemy.",
+        "imagePath": "./assets/Card_Spells_03.png"
+    },
+    {
+        "name": "Wizard",
+        "displayName": "Wizard",
+        "type": "troop",
+        "king": "Spells",
+        "description": "Ranged troop. Casts powerful attacks at a slow rate.",
+        "imagePath": "./assets/Card_Spells_04.png"
+    },
+    {
+        "name": "Shaman",
+        "displayName": "Shaman",
+        "type": "troop",
+        "king": "Spells",
+        "description": "Buffs allies' attack damage based on its own damage.",
+        "imagePath": "./assets/Card_Spells_05.png"
+    },
+    {
+        "name": "Library",
+        "displayName": "Library",
+        "type": "building",
+        "king": "Spells",
+        "description": "Every year, has a 50% chance of duplicating a stack of one adjacent troop.",
+        "imagePath": "./assets/Card_Spells_06.png"
+    },
+    {
+        "name": "Warlock",
+        "displayName": "Warlock",
+        "type": "troop",
+        "king": "Spells",
+        "description": "Sturdy troop that deals melee area damage.",
+        "imagePath": "./assets/Card_Spells_07.png"
+    },
+    {
+        "name": "Offering",
+        "displayName": "Offering",
+        "type": "tome",
+        "king": "Spells",
+        "description": "Destroy target plot to receive 3 random tome cards.",
+        "imagePath": "./assets/Card_Spells_08.png"
+    },
+    {
+        "name": "Stronghold",
+        "displayName": "Stronghold",
+        "type": "base",
+        "king": "Stone",
+        "description": "Summons towers that shoot nearby enemies.",
+        "imagePath": "./assets/Card_Stone_00.png"
+    },
+    {
+        "name": "Ballista",
+        "displayName": "Ballista",
+        "type": "troop",
+        "king": "Stone",
+        "description": "Ranged troop that shoots huge bolts with piercing damage.",
+        "imagePath": "./assets/Card_Stone_01.png"
+    },
+    {
+        "name": "Trebuchet",
+        "displayName": "Trebuchet",
+        "type": "tower",
+        "king": "Stone",
+        "description": "Multi-projectile tower. Shoots one extra projectile per building in your kingdom.",
+        "imagePath": "./assets/Card_Stone_02.png"
+    },
+    {
+        "name": "Trapper",
+        "displayName": "Trapper",
+        "type": "troop",
+        "king": "Stone",
+        "description": "Builds traps that inflict damage. Untriggered traps accumulate between battles.",
+        "imagePath": "./assets/Card_Stone_03.png"
+    },
+    {
+        "name": "Wallmaker",
+        "displayName": "Wallmaker",
+        "type": "building",
+        "king": "Stone",
+        "description": "Builds defensive walls in your kingdom.",
+        "imagePath": "./assets/Card_Stone_04.png"
+    },
+    {
+        "name": "Flamethrower",
+        "displayName": "Flamethrower",
+        "type": "tower",
+        "king": "Stone",
+        "description": "A mobile tower that moves onto the battlefield to burn enemies.",
+        "imagePath": "./assets/Card_Stone_05.png"
+    },
+    {
+        "name": "Quarry",
+        "displayName": "Quarry",
+        "type": "building",
+        "king": "Stone",
+        "description": "Adds damage to all towers every year.",
+        "imagePath": "./assets/Card_Stone_06.png"
+    },
+    {
+        "name": "Cauldron",
+        "displayName": "Cauldron",
+        "type": "building",
+        "king": "Stone",
+        "description": "All adjacent plots now deal poison damage.",
+        "imagePath": "./assets/Card_Stone_07.png"
+    },
+    {
+        "name": "Earthworks",
+        "displayName": "Earthworks",
+        "type": "tome",
+        "king": "Stone",
+        "description": "Unlocks target's adjacent plots. Target's cards return to your hand, up to 3 copies.",
+        "imagePath": "./assets/Card_Stone_08.png"
+    }
+]

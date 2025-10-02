@@ -1,0 +1,257 @@
+{
+    "Covenant": {
+        "icon": "./assets/Decree_Blood_00.png",
+        "tooltip": "Doubles the stats of all active Demon's Altars",
+        "type": "Blood"
+    },
+    "Embalming": {
+        "icon": "./assets/Decree_Blood_01.png",
+        "tooltip": "Enemies killed have a 10% chance to be summoned back to life as allies.",
+        "type": "Blood"
+    },
+    "Evil Pact": {
+        "icon": "./assets/Decree_Blood_02.png",
+        "tooltip": "Doubles the maximum quantity of imps summoned per battle.",
+        "type": "Blood"
+    },
+    "Fireworks": {
+        "icon": "./assets/Decree_Blood_03.png",
+        "tooltip": "Bombers have their attack range area doubled.",
+        "type": "Blood"
+    },
+    "Transmutation": {
+        "icon": "./assets/Decree_Blood_04.png",
+        "tooltip": "All active allied troops are replaced with level 3 Imps.",
+        "type": "Blood"
+    },
+    "Bunker": {
+        "icon": "./assets/Decree_Common_00.png",
+        "tooltip": "Increases the attack speed of your towers by 50%.",
+        "type": "Common"
+    },
+    "Feast": {
+        "icon": "./assets/Decree_Common_01.png",
+        "tooltip": "Doubles the maximum HP of all troops.",
+        "type": "Common"
+    },
+    "Overwork": {
+        "icon": "./assets/Decree_Common_02.png",
+        "tooltip": "Your buildings apply their effects one more time.",
+        "type": "Common"
+    },
+    "War Horns": {
+        "icon": "./assets/Decree_Common_04.png",
+        "tooltip": "Summoned units are 50% stronger.",
+        "type": "Common"
+    },
+    "Eyeglass": {
+        "icon": "./assets/Decree_Common_05.png",
+        "tooltip": "All your units and towers have +20% chance to deal critical damage.",
+        "type": "Common"
+    },
+    "Sharp Blades": {
+        "icon": "./assets/Decree_Common_06.png",
+        "tooltip": "Increases the attack of all your units and towers by 30%.",
+        "type": "Common"
+    },
+    "Catharsis": {
+        "icon": "./assets/Decree_Common_07.png",
+        "tooltip": "All troops in the field now have the same damage as your highest damage troop.",
+        "type": "Common"
+    },
+    "Supplies": {
+        "icon": "./assets/Decree_Common_08.png",
+        "tooltip": "Get a copy of each of your king's cards.",
+        "type": "Common"
+    },
+    "Outsourcing": {
+        "icon": "./assets/Decree_Common_09.png",
+        "tooltip": "Receive 9 free re-rolls.",
+        "type": "Common"
+    },
+    "Leatherworks": {
+        "icon": "./assets/Decree_Common_10.png",
+        "tooltip": "Doubles the movement speed of all your units.",
+        "type": "Common"
+    },
+    "Rebirth": {
+        "icon": "./assets/Decree_Common_11.png",
+        "tooltip": "Regains all your lost lives",
+        "type": "Common"
+    },
+    "Iron Fist": {
+        "icon": "./assets/Decree_Common_12.png",
+        "tooltip": "Doubles critical damage.",
+        "type": "Common"
+    },
+    "Gunpowder": {
+        "icon": "./assets/Decree_Common_15.png",
+        "tooltip": "Increases the damaging range of area attacks by 30%.",
+        "type": "Common"
+    },
+    "Weakspot": {
+        "icon": "./assets/Decree_Common_16.png",
+        "tooltip": "Frozen, stunned, or poisoned units take +50% damage.",
+        "type": "Common"
+    },
+    "Exploration": {
+        "icon": "./assets/Decree_Common_17.png",
+        "tooltip": "Unlocks 3 new random plots.",
+        "type": "Common"
+    },
+    "Poison Thorns": {
+        "icon": "./assets/Decree_Common_18.png",
+        "tooltip": "Every time enemies attack your units, those enemies gain 1 poison stack.",
+        "type": "Common"
+    },
+    "Loan": {
+        "icon": "./assets/Decree_Common_19.png",
+        "tooltip": "Receive 99 gold coins.",
+        "type": "Common"
+    },
+    "Venom": {
+        "icon": "./assets/Decree_Common_22.png",
+        "tooltip": "Every poison effect is now applied twice.",
+        "type": "Common"
+    },
+    "Insurance": {
+        "icon": "./assets/Decree_Greed_00.png",
+        "tooltip": "Receive 1 gold for every 9 allied unit deaths.",
+        "type": "Greed"
+    },
+    "Bargain": {
+        "icon": "./assets/Decree_Greed_01.png",
+        "tooltip": "Merchant's cards cost half the price.",
+        "type": "Greed"
+    },
+    "Salvage": {
+        "icon": "./assets/Decree_Greed_02.png",
+        "tooltip": "Cards thrown into the pit return 3x more gold.",
+        "type": "Greed"
+    },
+    "Burglary": {
+        "icon": "./assets/Decree_Greed_03.png",
+        "tooltip": "All active troops gain 2 stacks of Midas Touch.",
+        "type": "Greed"
+    },
+    "Scimitars": {
+        "icon": "./assets/Decree_Greed_04.png",
+        "tooltip": "Thief attacks are always critical strikes.",
+        "type": "Greed"
+    },
+    "Nettle": {
+        "icon": "./assets/Decree_Nature_00.png",
+        "tooltip": "Your Treant attack now deals damage to enemies.",
+        "type": "Nature"
+    },
+    "Wilderness": {
+        "icon": "./assets/Decree_Nature_01.png",
+        "tooltip": "Unlocks 3 new random plots, with Forests on each of them.",
+        "type": "Nature"
+    },
+    "Populate": {
+        "icon": "./assets/Decree_Nature_02.png",
+        "tooltip": "Whenever any unit is added to any plot, add one extra unit.",
+        "type": "Nature"
+    },
+    "Revitalize": {
+        "icon": "./assets/Decree_Nature_03.png",
+        "tooltip": "Doubles every heal effect.",
+        "type": "Nature"
+    },
+    "Fertility": {
+        "icon": "./assets/Decree_Nature_04.png",
+        "tooltip": "Receive 3 Procreate cards immediately.",
+        "type": "Nature"
+    },
+    "Gentrify": {
+        "icon": "./assets/Decree_Progress_00.png",
+        "tooltip": "All currently active plots gain one level.",
+        "type": "Progress"
+    },
+    "Splicing": {
+        "icon": "./assets/Decree_Progress_01.png",
+        "tooltip": "The level of all active Lab Rats is doubled.",
+        "type": "Progress"
+    },
+    "Ultragravity": {
+        "icon": "./assets/Decree_Progress_02.png",
+        "tooltip": "Doubles the attack range of your Mothership.",
+        "type": "Progress"
+    },
+    "Frankensteinian": {
+        "icon": "./assets/Decree_Progress_03.png",
+        "tooltip": "Converter towers now summon Bombers instead of Lab Rats.",
+        "type": "Progress"
+    },
+    "Scopes": {
+        "icon": "./assets/Decree_Progress_04.png",
+        "tooltip": "Adds 9 Precision cards to your hand.",
+        "type": "Progress"
+    },
+    "Gambling": {
+        "icon": "./assets/Decree_Special_00.png",
+        "tooltip": "Receive two cards after every battle. You can no longer choose your loot.",
+        "type": "Special"
+    },
+    "Longtermism": {
+        "icon": "./assets/Decree_Special_02.png",
+        "tooltip": "You can choose three decrees in the next Royal Council.",
+        "type": "Special"
+    },
+    "Wishing well": {
+        "icon": "./assets/Decree_Special_04.png",
+        "tooltip": "Gets 3 copies of the next card you throw into the pit.",
+        "type": "Special"
+    },
+    "Refraction": {
+        "icon": "./assets/Decree_Special_05.png",
+        "tooltip": "Replaces your cards in hand with random Rainbow cards.",
+        "type": "Special"
+    },
+    "Payroll": {
+        "icon": "./assets/Decree_Special_06.png",
+        "tooltip": "Your first re-roll in every encounter gives you +10 gold instead of taking it.",
+        "type": "Special"
+    },
+    "Static Fields": {
+        "icon": "./assets/Decree_Spells_00.png",
+        "tooltip": "Doubles the attack speed of your Citadel's lightning bolts.",
+        "type": "Spells"
+    },
+    "Re-enchant": {
+        "icon": "./assets/Decree_Spells_01.png",
+        "tooltip": "Doubles all enchantments of all your active troops.",
+        "type": "Spells"
+    },
+    "Glass Staffs": {
+        "icon": "./assets/Decree_Spells_02.png",
+        "tooltip": "Your Wizards now have 100 attack points but only 1 HP.",
+        "type": "Spells"
+    },
+    "Abracadabra": {
+        "icon": "./assets/Decree_Spells_03.png",
+        "tooltip": "10% of all enemies turn into frogs.",
+        "type": "Spells"
+    },
+    "Spiremania": {
+        "icon": "./assets/Decree_Spells_04.png",
+        "tooltip": "Doubles the amount of healing rays of your Spires.",
+        "type": "Spells"
+    },
+    "Dynamites": {
+        "icon": "./assets/Decree_Stone_00.png",
+        "tooltip": "Traps now cause double damage.",
+        "type": "Stone"
+    },
+    "Barricade": {
+        "icon": "./assets/Decree_Stone_01.png",
+        "tooltip": "Walls reflect 10% of damage taken.",
+        "type": "Stone"
+    },
+    "Towerdome": {
+        "icon": "./assets/Decree_Stone_02.png",
+        "tooltip": "Stronghold can now build towers twice as fast.",
+        "type": "Stone"
+    }
+}

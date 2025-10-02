@@ -1,0 +1,158 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.plotStatsModal {
+  @include flex-column;
+  gap: $spacing-lg;
+  min-width: 320px;
+  max-width: 400px;
+  padding: $spacing-md;
+}
+
+.plotInfo {
+  @include flex-column;
+  gap: $spacing-sm;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $color-border-light;
+}
+
+.plotHeader {
+  @include flex-column;
+  gap: $spacing-xs;
+  text-align: center;
+
+  h3 {
+    margin: 0;
+    color: $color-text-primary;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.cardName {
+  background: rgba($color-secondary, 0.1);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-secondary;
+  border: 1px solid rgba($color-secondary, 0.2);
+}
+
+.cardDataSection, .statsSection {
+  @include flex-column;
+  gap: $spacing-sm;
+  
+  h4 {
+    margin: 0;
+    padding: $spacing-sm 0;
+    border-bottom: 1px solid rgba($color-border-light, 0.5);
+    color: $color-text-primary;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+.cardDataGrid, .statsGrid {
+  @include flex-column;
+  gap: $spacing-sm;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.cardDataSection {
+  border-bottom: 1px solid $color-border-light;
+  padding-bottom: $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-sm;
+  align-items: center;
+  padding: $spacing-xs 0;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba($color-border-light, 0.5);
+  }
+}
+
+.statLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  margin: 0;
+}
+
+.statInput {
+  padding: $spacing-xs $spacing-sm;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-sm;
+  font-size: 13px;
+  background: white;
+  transition: all 0.2s ease-in-out;
+  
+  &:focus {
+    outline: none;
+    border-color: $color-secondary;
+    box-shadow: 0 0 0 2px rgba($color-secondary, 0.1);
+  }
+  
+  &:hover {
+    border-color: $color-border-medium;
+  }
+}
+
+.actions {
+  @include flex-between;
+  gap: $spacing-sm;
+  padding-top: $spacing-md;
+  border-top: 1px solid $color-border-light;
+}
+
+.cancelButton {
+  @include button-secondary;
+  flex: 1;
+  
+  &:hover {
+    background: rgba($color-text-muted, 0.1);
+    color: $color-text-secondary;
+  }
+}
+
+.saveButton {
+  @include button-primary;
+  flex: 1;
+  background: $color-success;
+  
+  &:hover:not(:disabled) {
+    background: darken($color-success, 10%);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-sm) {
+  .plotStatsModal {
+    min-width: 280px;
+    padding: $spacing-sm;
+  }
+  
+  .statsGrid {
+    max-height: 250px;
+  }
+  
+  .statRow {
+    grid-template-columns: 1fr;
+    gap: $spacing-xs;
+    text-align: left;
+  }
+  
+  .statLabel {
+    font-size: 12px;
+  }
+  
+  .statInput {
+    font-size: 14px;
+  }
+}

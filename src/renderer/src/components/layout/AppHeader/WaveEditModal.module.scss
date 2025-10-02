@@ -1,0 +1,256 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.waveEditor {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  min-height: 400px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+}
+
+.calendarOption {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-md;
+  border: 2px solid $color-border-light;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: $color-bg-secondary;
+  position: relative;
+  gap: $spacing-sm;
+  
+  &:hover {
+    border-color: $color-secondary;
+    background: $color-bg-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.selected {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.1);
+    
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: $color-primary;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+}
+
+.calendarImage {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: brightness(1.1);
+  transition: filter 0.2s ease-in-out;
+}
+
+.typeLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.specialBadge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: $color-warning;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.kingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+}
+
+.kingOption {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xs;
+  border: 2px solid $color-border-light;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: $color-bg-secondary;
+  gap: $spacing-sm;
+  
+  &:hover {
+    border-color: $color-secondary;
+    background: $color-bg-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.selected {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.1);
+    
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: $color-primary;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+}
+
+.kingImage {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.kingLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  text-align: center;
+}
+
+.actionButtons {
+  @include flex-center;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.setCurrentButton {
+  padding: $spacing-xs $spacing-sm;
+  background: $color-primary;
+  color: white;
+  border: none;
+  border-radius: $border-radius-md;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 160px;
+  
+  &:hover:not(:disabled) {
+    background: darken($color-primary, 10%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+  }
+  
+  &:disabled {
+    background: $color-success;
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+  
+  &.current {
+    background: $color-success;
+    
+    &::before {
+      content: '✓ ';
+      margin-right: $spacing-xs;
+    }
+  }
+}
+
+.waveInfo {
+  padding: $spacing-md;
+  background: $color-bg-secondary;
+  border-radius: $border-radius-md;
+  border-left: 4px solid $color-primary;
+  
+  p {
+    margin: $spacing-xs 0;
+    font-size: 14px;
+    color: $color-text-primary;
+    
+    &:first-child {
+      font-weight: 600;
+      margin-bottom: $spacing-sm;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .calendarGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-sm;
+  }
+  
+  .kingGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-sm;
+  }
+  
+  .calendarOption,
+  .kingOption {
+    padding: $spacing-xs;
+  }
+  
+  .calendarImage {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .kingImage {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .calendarGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .kingGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

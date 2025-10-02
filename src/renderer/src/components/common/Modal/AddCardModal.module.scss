@@ -1,0 +1,403 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+.controls {
+  @include flex-between;
+  gap: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid $color-border-light;
+  flex-shrink: 0;
+}
+
+.searchContainer {
+  position: relative;
+  flex: 1;
+  max-width: 300px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: $spacing-sm $spacing-lg $spacing-sm $spacing-md;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-md;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.1);
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  right: $spacing-sm;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $color-text-muted;
+  pointer-events: none;
+}
+
+.factionFilters {
+  @include flex-start;
+  gap: $spacing-xs;
+}
+
+.factionFilter {
+  @include button-secondary;
+  padding: $spacing-xs $spacing-sm;
+  font-size: 12px;
+  border-radius: $border-radius-md;
+  transition: all 0.2s ease;
+  min-width: 60px;
+
+  &.active {
+    @include button-primary;
+    font-weight: 600;
+  }
+
+  &[data-faction="nothing"].active {
+    background: linear-gradient(135deg, darken($color-nothing, 20%), lighten($color-nothing, 20%));
+    border-color: $color-nothing;
+  }
+
+  &[data-faction="spells"].active {
+    background: linear-gradient(135deg, darken($color-spells, 20%), lighten($color-spells, 20%));
+    border-color: $color-spells;
+    color: #333;
+  }
+
+  &[data-faction="blood"].active {
+    background: linear-gradient(135deg, darken($color-blood, 20%), lighten($color-blood, 20%));
+    border-color: $color-blood;
+  }
+
+  &[data-faction="greed"].active {
+    background: linear-gradient(135deg, darken($color-greed, 20%), lighten($color-greed, 20%));
+    border-color: $color-greed;
+    color: #333;
+  }
+
+  &[data-faction="nature"].active {
+    background: linear-gradient(135deg, darken($color-nature, 20%), lighten($color-nature, 20%));
+    border-color: $color-nature;
+  }
+
+  &[data-faction="progress"].active {
+    background: linear-gradient(135deg, darken($color-progress, 20%), lighten($color-progress, 20%));
+    border-color: $color-progress;
+  }
+
+  &[data-faction="stone"].active {
+    background: linear-gradient(135deg, darken($color-stone, 20%), lighten($color-stone, 20%));
+    border-color: $color-stone;
+  }
+
+  &[data-faction="nomads"].active {
+    background: linear-gradient(135deg, darken($color-nomads, 20%), lighten($color-nomads, 20%));
+    border-color: $color-nomads;
+  }
+
+  &[data-faction="time"].active {
+    background: linear-gradient(135deg, darken($color-time, 20%), lighten($color-time, 20%));
+    border-color: $color-time;
+  }
+
+  &[data-faction="all"].active {
+    background: $color-primary;
+  }
+}
+
+.capacityWarning {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: rgba($color-warning, 0.1);
+  border: 1px solid rgba($color-warning, 0.3);
+  border-radius: $border-radius-md;
+  color: darken($color-warning, 20%);
+  font-size: 14px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.warningIcon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cardSelection {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-xs;
+  
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $color-bg-primary;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $color-border-light;
+    border-radius: 4px;
+    
+    &:hover {
+      background: $color-border-dark;
+    }
+  }
+}
+
+.factionSection {
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.factionTitle {
+  @include flex-between;
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  padding-bottom: $spacing-xs;
+  border-bottom: 2px solid transparent;
+
+  &[data-faction="blood"] {
+    border-color: #FF0000;
+    color: #8B0000;
+  }
+
+  &[data-faction="greed"] {
+    border-color: #FFD700;
+    color: #B8860B;
+  }
+
+  &[data-faction="nature"] {
+    border-color: #32CD32;
+    color: #006400;
+  }
+}
+
+.cardCount {
+  font-size: 12px;
+  font-weight: 400;
+  color: $color-text-secondary;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: $spacing-sm;
+}
+
+.cardOption {
+  @include flex-column;
+  @include card-base;
+  padding: $spacing-sm;
+  cursor: pointer;
+  align-items: center;
+  gap: $spacing-xs;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  background: white;
+
+  &:hover:not(.disabled) {
+    @include card-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active:not(.disabled) {
+    transform: translateY(-1px);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  &:focus-visible {
+    border-color: $color-primary;
+    outline: none;
+  }
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cardInfo {
+  @include flex-column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.cardName {
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-text-primary;
+  line-height: 1.2;
+}
+
+.cardVariant {
+  font-size: 10px;
+  color: $color-text-secondary;
+  font-weight: 500;
+}
+
+.noResults {
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  color: $color-text-muted;
+  text-align: center;
+  gap: $spacing-sm;
+}
+
+.noResultsIcon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.noResultsText {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.modalActions {
+  @include flex-end;
+  gap: $spacing-sm;
+  padding-top: $spacing-sm;
+  border-top: 1px solid $color-border-light;
+  flex-shrink: 0;
+}
+
+.doneButton {
+  @include button-primary;
+  min-width: 100px;
+}
+
+// Responsive design
+@media (max-width: $breakpoint-lg) {
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .cardImageContainer {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .modalContent {
+    gap: $spacing-sm;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-sm;
+  }
+
+  .searchContainer {
+    max-width: none;
+  }
+
+  .factionFilters {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: $spacing-xs;
+  }
+
+  .cardImageContainer {
+    width: 48px;
+    height: 48px;
+  }
+
+  .cardName {
+    font-size: 11px;
+  }
+
+  .cardVariant {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .cardGrid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+
+  .modalActions {
+    justify-content: center;
+  }
+}
+
+// Animation for card appearance
+@keyframes cardOptionEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cardOption {
+  animation: cardOptionEnter 0.3s ease-out;
+  animation-fill-mode: both;
+}
+
+// Stagger animation for multiple cards
+.cardGrid .cardOption {
+  &:nth-child(1) { animation-delay: 0.05s; }
+  &:nth-child(2) { animation-delay: 0.1s; }
+  &:nth-child(3) { animation-delay: 0.15s; }
+  &:nth-child(4) { animation-delay: 0.2s; }
+  &:nth-child(5) { animation-delay: 0.25s; }
+  &:nth-child(6) { animation-delay: 0.3s; }
+}

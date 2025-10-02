@@ -1,0 +1,174 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.areaStatistics {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.placeholder {
+  @include flex-center;
+  padding: $spacing-lg;
+  color: $color-text-muted;
+  font-style: italic;
+  font-size: 12px;
+  background: $color-bg-secondary;
+  border-radius: $border-radius-sm;
+  border: 1px solid $color-border-light;
+}
+
+.placeholderText {
+  color: $color-text-muted;
+}
+
+.statsGrid {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.statRow {
+  @include flex-between;
+  padding: $spacing-sm;
+  background: $color-bg-secondary;
+  border-radius: $border-radius-sm;
+  border: 1px solid $color-border-light;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: darken($color-bg-secondary, 5%);
+  }
+}
+
+.editRow {
+  @include flex-between;
+  padding: $spacing-sm;
+  background: white;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-sm;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  align-items: center;
+
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.statLabel {
+  font-size: 12px;
+  color: $color-text-secondary;
+  font-weight: 500;
+  flex: 1;
+  text-align: left;
+}
+
+.statValue {
+  font-size: 14px;
+  color: $color-text-primary;
+  font-weight: 600;
+  text-align: right;
+  min-width: 60px;
+}
+
+.editableValue {
+  font-size: 12px;
+  color: $color-text-primary;
+  font-weight: 600;
+  text-align: right;
+  min-width: 60px;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $color-bg-secondary;
+  }
+}
+
+.editContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $spacing-xs;
+  flex: 0 0 auto;
+  max-width: 100px;
+}
+
+.editInput {
+  padding: $spacing-xs $spacing-sm;
+  border: 1px solid $color-primary;
+  border-radius: $border-radius-sm;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 80px;
+  background: white;
+  color: $color-text-primary;
+  text-align: right;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+  }
+}
+
+.aggregateStats {
+  @include flex-column;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+  padding-top: $spacing-md;
+  border-top: 1px solid $color-border-light;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-xs 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .statRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-xs;
+    text-align: left;
+  }
+  
+  .statLabel,
+  .statValue {
+    text-align: left;
+  }
+  
+  .statValue {
+    font-size: 16px;
+    min-width: auto;
+  }
+}
+
+// Loading state
+.areaStatistics[data-loading="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// Updated/changed indicator
+.statRow[data-changed="true"] {
+  background: rgba($color-success, 0.1);
+  border-color: $color-success;
+  animation: highlight 0.3s ease;
+}
+
+@keyframes highlight {
+  0% {
+    background: rgba($color-success, 0.3);
+  }
+  100% {
+    background: rgba($color-success, 0.1);
+  }
+}

@@ -1,0 +1,192 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.decreesList {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.decree {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: $color-bg-primary;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-sm;
+  align-items: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.05);
+  }
+
+  // King-specific styling
+  &.decree--blood {
+    border-left: 3px solid $color-blood;
+  }
+
+  &.decree--greed {
+    border-left: 3px solid $color-greed;
+  }
+
+  &.decree--nature {
+    border-left: 3px solid $color-nature;
+  }
+}
+
+.decreeIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.decreeInfo {
+  @include flex-column;
+  gap: $spacing-xs;
+  flex: 1;
+  min-width: 0; // Allow text truncation if needed
+}
+
+.decreeName {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-primary;
+  text-transform: capitalize;
+}
+
+.decreeStacks {
+  font-size: 11px;
+  color: $color-text-secondary;
+  font-weight: 600;
+}
+
+.decreeControls {
+  @include flex-start;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.controlButton {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.controlButtonMinus {
+  color: $color-danger;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-danger, 0.1);
+    color: $color-danger;
+  }
+}
+
+.controlButtonPlus {
+  color: $color-success;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-success, 0.1);
+    color: $color-success;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $color-bg-dark;
+  color: $color-text-light;
+  padding: $spacing-xs;
+  border-radius: $border-radius-sm;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid $color-bg-dark;
+  }
+}
+
+.addDecreeButton {
+  @include flex-center;
+  gap: $spacing-xs;
+  padding: $spacing-sm;
+  background: transparent;
+  border: 2px dashed $color-border-light;
+  border-radius: $border-radius-sm;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+    background: rgba($color-primary, 0.05);
+  }
+}
+
+.plusIcon {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.addDecreeText {
+  font-weight: 500;
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .decree {
+    padding: $spacing-xs;
+  }
+  
+  .decreeIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .controlButton {
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+  }
+
+  .tooltip {
+    font-size: 10px;
+  }
+}

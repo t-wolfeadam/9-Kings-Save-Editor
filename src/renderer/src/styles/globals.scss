@@ -1,0 +1,269 @@
+// CSS Reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  color: $color-text-primary;
+  background-color: $color-bg-primary;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+// Main application layout - 5 UI areas
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "left-panel central-area right-panel"
+    "bottom-panel bottom-panel bottom-panel";
+  grid-template-columns: $panel-left-width 1fr $panel-right-width;
+  grid-template-rows: $panel-top-height 1fr $panel-bottom-height;
+  gap: 0;
+  background: $color-bg-primary;
+
+  // Responsive layout adjustments
+  @include respond-to(md) {
+    grid-template-columns: $panel-left-width 1fr $panel-right-width;
+  }
+
+  // Mobile layout - stack panels vertically
+  @media (max-width: $breakpoint-md) {
+    grid-template-areas: 
+      "header"
+      "central-area"
+      "left-panel"
+      "right-panel"
+      "bottom-panel";
+    grid-template-columns: 1fr;
+    grid-template-rows: $panel-top-height 1fr auto auto $panel-bottom-height;
+    overflow-y: auto;
+  }
+}
+
+// Header panel (top) - Calendar strip
+.app__header {
+  grid-area: header;
+  @include panel-base;
+  @include flex-between;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid $color-border-light;
+  background: white;
+  padding: $spacing-sm $spacing-md;
+  z-index: 100;
+}
+
+// Left panel - Currency, King selector, Decrees
+.app__left-panel {
+  grid-area: left-panel;
+  @include panel-scrollable;
+  border-radius: 0;
+  border: none;
+  border-right: 1px solid $color-border-light;
+  background: white;
+  
+  @media (max-width: $breakpoint-md) {
+    border-right: none;
+    border-bottom: 1px solid $color-border-light;
+  }
+}
+
+// Central area - Isometric grid
+.app__central-area {
+  grid-area: central-area;
+  @include flex-center;
+  background: $color-bg-primary;
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-lg;
+  
+  // Grid container styling
+  .grid-container {
+    position: relative;
+    @include flex-center;
+    min-height: 400px;
+    min-width: 400px;
+  }
+}
+
+// Right panel - Stats table, Policy variables, Blessing info
+.app__right-panel {
+  grid-area: right-panel;
+  @include panel-scrollable;
+  border-radius: 0;
+  border: none;
+  border-left: 1px solid $color-border-light;
+  background: white;
+  
+  @media (max-width: $breakpoint-md) {
+    border-left: none;
+    border-bottom: 1px solid $color-border-light;
+  }
+}
+
+// Bottom panel - Hand cards
+.app__bottom-panel {
+  grid-area: bottom-panel;
+  @include panel-base;
+  @include flex-center;
+  border-radius: 0;
+  border: none;
+  border-top: 1px solid $color-border-light;
+  background: white;
+  padding: $spacing-md;
+}
+
+// Common panel content styling
+.panel {
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid $color-border-light;
+  }
+
+  &__section {
+    margin-bottom: $spacing-lg;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+}
+
+// Loading and placeholder states
+.loading {
+  @include flex-center;
+  height: 100px;
+  color: $color-text-secondary;
+  font-style: italic;
+}
+
+.placeholder {
+  @include flex-center;
+  @include flex-column;
+  height: 200px;
+  background: $color-bg-secondary;
+  border: 2px dashed $color-border-medium;
+  border-radius: $border-radius-md;
+  color: $color-text-secondary;
+  gap: $spacing-sm;
+  
+  &__icon {
+    font-size: 48px;
+    opacity: 0.5;
+  }
+  
+  &__text {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.fw-bold {
+  font-weight: 600;
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+// Scrollbar styling for webkit browsers
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-bg-secondary;
+  border-radius: $border-radius-sm;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-border-medium;
+  border-radius: $border-radius-sm;
+  
+  &:hover {
+    background: $color-border-dark;
+  }
+}
+
+// Focus styles for accessibility
+button,
+input,
+select,
+textarea {
+  &:focus {
+    outline: 2px solid $color-secondary;
+    outline-offset: 2px;
+  }
+}
+
+// Drag and drop global styles
+.dragging {
+  .app__central-area {
+    background-color: rgba($color-secondary, 0.05);
+  }
+}
+
+// Print styles
+@media print {
+  .app {
+    display: block !important;
+    height: auto !important;
+  }
+  
+  .app__header,
+  .app__bottom-panel {
+    display: none;
+  }
+}

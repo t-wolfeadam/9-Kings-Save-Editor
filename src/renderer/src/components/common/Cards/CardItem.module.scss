@@ -1,0 +1,161 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+
+.cardItem {
+  @include flex-column;
+  @include card-base;
+  position: relative;
+  min-width: 80px;
+  padding: $spacing-sm;
+  align-items: center;
+  gap: $spacing-xs;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  user-select: none;
+  outline: none;
+
+  &:hover {
+    @include card-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus-visible {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+
+  &.errorCard {
+    background-color: #ffe6e6;
+    border-color: #ff4444;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.countBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: $color-primary;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.cardName {
+  font-size: 10px;
+  text-align: center;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70px;
+  font-weight: 500;
+}
+
+.removeButton {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: $color-danger;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  line-height: 1;
+
+  &:hover {
+    background: darken($color-danger, 10%);
+    transform: scale(1.1);
+  }
+
+  .cardItem:hover & {
+    display: flex;
+  }
+}
+
+.errorText {
+  font-size: 10px;
+  color: $color-danger;
+  font-weight: bold;
+  text-align: center;
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .cardItem {
+    min-width: 70px;
+    padding: $spacing-xs;
+  }
+
+  .cardImageContainer {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cardName {
+    font-size: 9px;
+    max-width: 60px;
+  }
+}
+
+// Animation for card appearance
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cardItem {
+  animation: cardEnter 0.3s ease-out;
+}
+
+// Drag preview styles for better visual feedback
+.cardItem.dragging {
+  border-color: $color-primary;
+  background: lighten($color-primary, 45%);
+}

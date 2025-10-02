@@ -1,0 +1,232 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.isometricGrid {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: $color-bg-primary;
+  overflow: hidden;
+  padding: $spacing-md;
+}
+
+.gridContainer {
+  position: relative;
+  @include flex-center;
+  min-width: 800px;
+  min-height: 600px;
+  width: 90vw;
+  height: 70vh;
+  max-width: 1200px;
+  max-height: 800px;
+  flex: 1;
+  background-color: darkgreen;
+}
+
+.plotsContainer {
+  position: relative;
+  @include flex-center;
+  z-index: 1;
+  transform: scale(3);
+  // Container for all plot cells positioned absolutely
+}
+
+.gridCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.centerDot {
+  width: 6px;
+  height: 6px;
+  background: $color-danger;
+  border-radius: 50%;
+  opacity: 0.4;
+  border: 1px solid rgba(white, 0.8);
+}
+
+.gridInfo {
+  position: absolute;
+  bottom: $spacing-md;
+  left: $spacing-md;
+  @include flex-column;
+  gap: $spacing-xs;
+  padding: $spacing-sm;
+  background: rgba(white, 0.95);
+  border-radius: $border-radius-sm;
+  border: 1px solid $color-border-light;
+  font-size: 11px;
+  color: $color-text-secondary;
+  z-index: 5;
+  backdrop-filter: blur(4px);
+  box-shadow: $shadow-sm;
+  
+  span:first-child {
+    font-weight: 600;
+    color: $color-text-primary;
+  }
+  
+  span:last-child {
+    font-size: 10px;
+    color: $color-text-muted;
+  }
+}
+
+// Construction mode overlay
+.isometricGrid[data-construction-mode="add"] {
+  .gridInfo {
+    border-color: $color-success;
+    background: rgba($color-success, 0.05);
+    
+    span:first-child {
+      color: $color-success;
+    }
+  }
+}
+
+.isometricGrid[data-construction-mode="remove"] {
+  .gridInfo {
+    border-color: $color-danger;
+    background: rgba($color-danger, 0.05);
+    
+    span:first-child {
+      color: $color-danger;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-lg) {
+  .isometricGrid {
+    padding: $spacing-sm;
+  }
+  
+  .gridContainer {
+    min-width: 700px;
+    min-height: 500px;
+    width: 85vw;
+    height: 65vh;
+  }
+  
+  .plotsContainer {
+    transform: scale(1.3);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .isometricGrid {
+    padding: $spacing-xs;
+    flex-direction: column;
+  }
+  
+  .gridContainer {
+    min-width: 600px;
+    min-height: 450px;
+    width: 80vw;
+    height: 60vh;
+  }
+  
+  .plotsContainer {
+    transform: scale(1.1);
+  }
+  
+  .gridInfo {
+    position: static;
+    margin-top: $spacing-sm;
+    align-self: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .gridContainer {
+    min-width: 400px;
+    min-height: 300px;
+    width: 95vw;
+    height: 50vh;
+  }
+  
+  .plotsContainer {
+    transform: scale(0.9);
+  }
+  
+  .gridInfo {
+    font-size: 10px;
+    padding: $spacing-xs;
+    
+    span:last-child {
+      font-size: 9px;
+    }
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .isometricGrid {
+    background: white;
+  }
+  
+  .centerDot {
+    background: $color-text-primary;
+    opacity: 0.8;
+    border: 2px solid white;
+  }
+  
+  .gridInfo {
+    background: white;
+    border: 2px solid $color-text-primary;
+    
+    span:first-child {
+      color: $color-text-primary;
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .gridContainer {
+    transform: none !important;
+  }
+  
+  .centerDot {
+    transition: none;
+  }
+}
+
+// Focus management for accessibility
+.isometricGrid:focus-within {
+  outline: none;
+  
+  .gridInfo {
+    border-color: $color-secondary;
+    box-shadow: 0 0 0 2px rgba($color-secondary, 0.2);
+  }
+}
+
+// Print styles
+@media print {
+  .isometricGrid {
+    background: white;
+    padding: 0;
+    overflow: visible;
+  }
+  
+  .gridInfo {
+    background: white;
+    border: 1px solid black;
+    color: black;
+    
+    span {
+      color: black !important;
+    }
+  }
+  
+  .centerDot {
+    background: black;
+  }
+}

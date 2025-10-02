@@ -1,0 +1,173 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.kingSelector {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.kingFace {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  border: 2px solid $color-border-light;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  align-items: center;
+  position: relative;
+  background: $color-bg-primary;
+
+  &:hover:not(.inactive) {
+    border-color: $color-secondary;
+    background: rgba($color-secondary, 0.1);
+  }
+
+  &.inactive {
+    opacity: 0.4;
+    filter: grayscale(100%);
+
+    &:hover {
+      opacity: 0.6;
+      border-color: $color-border-medium;
+    }
+  }
+
+  &.selected {
+    border-width: 3px;
+    background: rgba($color-primary, 0.1);
+
+    &.selected--blood {
+      border-color: $color-blood;
+      background: rgba($color-blood, 0.15);
+
+      .kingName {
+        color: $color-blood;
+        font-weight: 700;
+      }
+    }
+
+    &.selected--greed {
+      border-color: $color-greed;
+      background: rgba($color-greed, 0.15);
+
+      .kingName {
+        color: $color-greed;
+        font-weight: 700;
+      }
+    }
+
+    &.selected--nature {
+      border-color: $color-nature;
+      background: rgba($color-nature, 0.15);
+
+      .kingName {
+        color: $color-nature;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.kingIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: filter 0.2s ease-in-out;
+}
+
+.kingName {
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-primary;
+  transition: all 0.2s ease-in-out;
+  flex: 1;
+}
+
+.selectionIndicator {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $color-success;
+  border: 2px solid $color-bg-primary;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+  &::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 8px;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+.instructions {
+  padding: $spacing-xs;
+  background: rgba($color-text-secondary, 0.05);
+  border-radius: $border-radius-sm;
+  margin-top: $spacing-xs;
+}
+
+.instructionText {
+  font-size: 10px;
+  color: $color-text-secondary;
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .kingSelector {
+    flex-direction: row;
+    overflow-x: auto;
+    
+    .kingFace {
+      min-width: 100px;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap: $spacing-xs;
+      
+      .kingIcon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .kingName {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .instructions {
+    order: -1;
+    margin-bottom: $spacing-sm;
+    margin-top: 0;
+  }
+}
+
+// Animation for selection changes
+@keyframes selectPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.kingFace.selected {
+  animation: selectPulse 0.3s ease-out;
+}
+
+// Focus styles for accessibility
+.kingFace:focus {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}

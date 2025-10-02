@@ -1,0 +1,265 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.plotCell {
+  @include isometric-cell;
+  @include isometric-cell-hover;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: $border-radius-sm;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    z-index: 10;
+  }
+
+  // State-based styling
+  &.accessible {
+    .plotImage {
+      opacity: 0.9;
+      filter: brightness(1.1);
+    }
+  }
+
+  &.inaccessible {
+    .plotImage {
+      opacity: 0.6;
+      filter: grayscale(0.3);
+    }
+  }
+
+  &.hole {
+    .plotImage {
+      opacity: 0.8;
+      filter: sepia(0.3) hue-rotate(20deg);
+    }
+  }
+
+  &.occupied {
+    .plotImage {
+      opacity: 1;
+      filter: none;
+      rotate: -20deg;
+      transform: skew(40deg, -10deg);
+      scale: 0.7;
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+      
+      .plotImage {
+        filter: brightness(1.1);
+      }
+    }
+  }
+
+  // Construction mode states
+  &[data-construction-mode="add"]:hover {
+    .plotBackground::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba($color-success, 0.3);
+      border: 2px dashed $color-success;
+      border-radius: $border-radius-sm;
+      z-index: 2;
+      transform-origin: -42px -28px; // super rough approximations here...
+      transform: translate(-6.5px, 40px) rotate(-27deg) skew(35deg) scale(0.55, 0.9);
+    }
+  }
+
+  &[data-construction-mode="remove"]:hover {
+    .plotBackground::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba($color-danger, 0.3);
+      border: 2px dashed $color-danger;
+      border-radius: $border-radius-sm;
+      z-index: 2;
+      transform-origin: -42px -28px; // super rough approximations here...
+      transform: translate(-6.5px, 40px) rotate(-27deg) skew(35deg) scale(0.55, 0.9);
+    }
+  }
+}
+
+.plotBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+}
+
+.plotImage {
+  width: $grid-cell-width;
+  height: $grid-cell-height;
+  object-fit: contain;
+  transition: all 0.2s ease-in-out;
+}
+
+.coordinates {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 8px;
+  color: $color-text-muted;
+  background: rgba(white, 0.9);
+  padding: 1px 3px;
+  border-radius: 2px;
+  z-index: 5;
+  font-family: monospace;
+  font-weight: 500;
+  pointer-events: none;
+
+  visibility: hidden;  // TODO update later with a better visual representation of this
+}
+
+.cardLevel {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: $color-secondary;
+  color: white;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: $border-radius-sm;
+  min-width: 18px;
+  text-align: center;
+  z-index: 4;
+  border: 1px solid rgba(white, 0.3);
+  box-shadow: $shadow-sm;
+
+  visibility: hidden; // TODO update later with a better visual representation of this
+}
+
+.troopCount {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: $color-warning;
+  color: white;
+  font-size: 8px;
+  font-weight: 600;
+  padding: 1px 3px;
+  border-radius: $border-radius-sm;
+  min-width: 16px;
+  text-align: center;
+  z-index: 4;
+  border: 1px solid rgba(white, 0.3);
+  box-shadow: $shadow-sm;
+
+  visibility: hidden; // TODO update later with a better visual representation of this
+}
+
+.constructionIndicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  @include flex-center;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  z-index: 5;
+  animation: pulse 1s infinite;
+
+  &.add {
+    background: $color-success;
+    border: 2px solid darken($color-success, 10%);
+  }
+
+  &.remove {
+    background: $color-danger;
+    border: 2px solid darken($color-danger, 10%);
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .plotCell {
+    transform-origin: center;
+    
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  
+  .coordinates {
+    font-size: 7px;
+    padding: 1px 2px;
+  }
+  
+  .cardLevel, .troopCount {
+    font-size: 7px;
+    padding: 1px 2px;
+    min-width: 14px;
+  }
+  
+  .constructionIndicator {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .plotCell {
+    &.inaccessible .plotImage {
+      filter: grayscale(1) brightness(0.7);
+    }
+    
+    &.hole .plotImage {
+      filter: brightness(0.5);
+    }
+  }
+  
+  .cardLevel {
+    border: 2px solid white;
+  }
+  
+  .troopCount {
+    border: 2px solid white;
+  }
+}

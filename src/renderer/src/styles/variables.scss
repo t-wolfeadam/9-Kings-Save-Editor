@@ -1,0 +1,82 @@
+// Color Palette
+$color-primary: #2c3e50;
+$color-secondary: #3498db;
+$color-accent: #e74c3c;
+$color-success: #27ae60;
+$color-warning: #f39c12;
+$color-danger: #e74c3c;
+
+$color-info: $color-primary; // added to fix bugs
+
+// King Colors
+$color-blood: #CC0000;
+$color-greed: #ffd700;
+$color-nature: #228b22;
+$color-nomads: #84A6BE;
+$color-nothing: #5B957F;
+$color-progress: #C27A42;
+$color-special: #7200B5;
+$color-spells: #7165C5;
+$color-stone: #776D6D;
+$color-time: #A048BD;
+$color-common: #000000;
+
+
+// Background Colors
+$color-bg-primary: #ecf0f1;
+$color-bg-secondary: #bdc3c7;
+$color-bg-dark: #34495e;
+$color-bg-darker: #2c3e50;
+
+$color-bg-hover: #777d81; // added to fix bugs
+
+// Text Colors
+$color-text-primary: #2c3e50;
+$color-text-secondary: #7f8c8d;
+$color-text-light: #ecf0f1;
+$color-text-muted: #95a5a6;
+
+// Border Colors
+$color-border-light: #bdc3c7;
+$color-border-medium: #95a5a6;
+$color-border-dark: #7f8c8d;
+
+// Layout Dimensions
+$panel-left-width: 250px;
+$panel-right-width: 300px;
+$panel-top-height: 80px;
+$panel-bottom-height: 120px;
+
+// Grid System
+$grid-cell-width: 64px;
+$grid-cell-height: 32px;
+$grid-size: 5;
+
+// Spacing
+$spacing-xxs: 2px;
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+// Z-Index Layers
+$z-index-dropdown: 1000;
+$z-index-modal: 1500;
+$z-index-tooltip: 2000;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

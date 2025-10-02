@@ -1,0 +1,257 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.constructionTools {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  @include flex-column;
+  gap: $spacing-sm;
+  background: rgba(white, 0.95);
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm;
+  box-shadow: $shadow-md;
+  z-index: 10;
+  min-width: 120px;
+  backdrop-filter: blur(4px);
+}
+
+.toolsHeader {
+  @include flex-center;
+  padding-bottom: $spacing-xs;
+  border-bottom: 1px solid $color-border-light;
+}
+
+.toolsTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xs;
+}
+
+.tool {
+  @include flex-column;
+  @include button-base;
+  gap: $spacing-xs;
+  padding: $spacing-xs;
+  background: white;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  min-height: 60px;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+    border-color: $color-border-medium;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &.active {
+    border-color: $color-secondary;
+    background: rgba($color-secondary, 0.05);
+    box-shadow: 0 0 0 2px rgba($color-secondary, 0.1);
+    
+    .toolLabel {
+      color: $color-secondary;
+      font-weight: 600;
+    }
+  }
+}
+
+.addTool {
+  &.active {
+    border-color: $color-success;
+    background: rgba($color-success, 0.05);
+    box-shadow: 0 0 0 2px rgba($color-success, 0.1);
+    
+    .toolLabel {
+      color: $color-success;
+    }
+  }
+  
+  &:hover:not(.active) {
+    border-color: $color-success;
+  }
+}
+
+.removeTool {
+  &.active {
+    border-color: $color-danger;
+    background: rgba($color-danger, 0.05);
+    box-shadow: 0 0 0 2px rgba($color-danger, 0.1);
+    
+    .toolLabel {
+      color: $color-danger;
+    }
+  }
+  
+  &:hover:not(.active) {
+    border-color: $color-danger;
+  }
+}
+
+.toolIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: all 0.2s ease-in-out;
+  
+  .active & {
+    transform: scale(1.1);
+  }
+}
+
+.toolLabel {
+  font-size: 10px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.activeIndicator {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: $color-secondary;
+  color: white;
+  font-size: 7px;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: $border-radius-sm;
+  white-space: nowrap;
+  animation: pulse 2s infinite;
+  
+  .addTool & {
+    background: $color-success;
+  }
+  
+  .removeTool & {
+    background: $color-danger;
+  }
+}
+
+.instructions {
+  @include flex-center;
+  text-align: center;
+  font-size: 9px;
+  color: $color-text-muted;
+  padding: $spacing-xs;
+  background: rgba($color-bg-secondary, 0.3);
+  border-radius: $border-radius-sm;
+  min-height: 24px;
+  line-height: 1.2;
+}
+
+.clearButton {
+  @include button-secondary;
+  font-size: 10px;
+  padding: $spacing-xs $spacing-sm;
+  
+  &:hover {
+    background: rgba($color-text-muted, 0.1);
+    color: $color-text-secondary;
+    border-color: $color-text-muted;
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .constructionTools {
+    position: static;
+    width: 100%;
+    margin: $spacing-sm 0;
+    min-width: unset;
+  }
+  
+  .toolsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .tool {
+    min-height: 50px;
+  }
+  
+  .toolIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .toolLabel {
+    font-size: 9px;
+  }
+  
+  .instructions {
+    font-size: 8px;
+    padding: $spacing-xs $spacing-sm;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .constructionTools {
+    background: white;
+    border: 2px solid $color-text-primary;
+  }
+  
+  .tool {
+    border: 2px solid $color-border-dark;
+    
+    &.active {
+      border-width: 3px;
+    }
+  }
+  
+  .activeIndicator {
+    border: 1px solid white;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .tool {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+  
+  .activeIndicator {
+    animation: none;
+  }
+  
+  .toolIcon {
+    transition: none;
+    
+    .active & {
+      transform: none;
+    }
+  }
+}

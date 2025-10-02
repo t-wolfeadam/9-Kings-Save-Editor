@@ -1,0 +1,72 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.currencyDisplay {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: $color-bg-secondary;
+  border-radius: $border-radius-md;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    background: lighten($color-bg-secondary, 5%);
+  }
+}
+
+.coinIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.coinAmount {
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-text-primary;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  
+  &:hover {
+    background: rgba($color-primary, 0.1);
+    color: $color-primary;
+  }
+}
+
+.coinInput {
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-text-primary;
+  background: transparent;
+  border: 1px solid $color-primary;
+  border-radius: 4px;
+  padding: 2px 4px;
+  min-width: 60px;
+  text-align: left;
+  
+  &:focus {
+    outline: none;
+    border-color: $color-secondary;
+    background: rgba($color-secondary, 0.05);
+  }
+  
+  &::placeholder {
+    color: $color-text-secondary;
+  }
+}
+
+// Remove spinner from number input
+.coinInput::-webkit-outer-spin-button,
+.coinInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.coinInput[type=number] {
+  -moz-appearance: textfield;
+}

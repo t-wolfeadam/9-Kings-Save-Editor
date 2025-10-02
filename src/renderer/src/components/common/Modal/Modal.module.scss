@@ -1,0 +1,140 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md;
+  backdrop-filter: blur(2px);
+}
+
+.modalContent {
+  background: $color-bg-primary;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-border-medium;
+
+  &.modalContent--small {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &.modalContent--medium {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &.modalContent--large {
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+.modalHeader {
+  @include flex-between;
+  padding: $spacing-lg;
+  border-bottom: 1px solid $color-border-light;
+  background: $color-bg-secondary;
+  align-items: center;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: $color-text-secondary;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  line-height: 1;
+
+  &:hover {
+    background: rgba($color-danger, 0.1);
+    color: $color-danger;
+  }
+}
+
+.modalBody {
+  padding: $spacing-lg;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+// Animation
+.modalOverlay {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modalContent {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-md) {
+  .modalOverlay {
+    padding: $spacing-sm;
+  }
+
+  .modalHeader {
+    padding: $spacing-md;
+  }
+
+  .modalBody {
+    padding: $spacing-md;
+  }
+
+  .modalTitle {
+    font-size: 16px;
+  }
+
+  .closeButton {
+    width: 28px;
+    height: 28px;
+    font-size: 24px;
+  }
+}

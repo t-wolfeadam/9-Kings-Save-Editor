@@ -1,0 +1,162 @@
+
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Grid utilities
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+
+// Card styling
+@mixin card-base {
+  background: white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  border: 1px solid $color-border-light;
+}
+
+@mixin card-hover {
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-1px);
+  }
+}
+
+@mixin button-base {
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $color-primary;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background: darken($color-primary, 10%);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  
+  &:hover:not(:disabled) {
+    background: $color-primary;
+    color: white;
+  }
+}
+
+@mixin flex-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+// Panel styling
+@mixin panel-base {
+  @include card-base;
+  padding: $spacing-md;
+  height: 100%;
+  overflow: hidden;
+}
+
+@mixin panel-scrollable {
+  @include panel-base;
+  overflow-y: auto;
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $color-bg-secondary;
+    border-radius: $border-radius-sm;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $color-border-medium;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background: $color-border-dark;
+    }
+  }
+}
+
+// Grid cell styling
+@mixin isometric-cell {
+  width: $grid-cell-width;
+  height: $grid-cell-height;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin isometric-cell-hover {
+  &:hover {
+    transform: scale(1.05);
+    z-index: 10;
+  }
+}
+
+// Responsive utilities
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}

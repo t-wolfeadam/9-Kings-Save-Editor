@@ -1,0 +1,258 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.blessingEditor {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  min-height: 300px;
+}
+
+.description {
+  font-size: 14px;
+  color: $color-text-secondary;
+  margin: 0;
+  text-align: center;
+}
+
+.blessingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+}
+
+.blessingOption {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-lg;
+  border: 2px solid $color-border-light;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: $color-bg-secondary;
+  position: relative;
+  gap: $spacing-sm;
+  
+  &:hover {
+    border-color: $color-warning;
+    background: $color-bg-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($color-warning, 0.2);
+  }
+  
+  &.selected {
+    border-color: $color-warning;
+    background: rgba($color-warning, 0.1);
+    
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: $color-warning;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+}
+
+.blessingImage {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: brightness(1.1) saturate(1.2);
+  transition: filter 0.2s ease-in-out;
+}
+
+.blessingLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1px solid $color-border-light;
+}
+
+.cancelButton {
+  @include button-base;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+  border: 1px solid $color-border-light;
+  padding: $spacing-sm $spacing-lg;
+  font-size: 14px;
+  
+  &:hover:not(:disabled) {
+    background: $color-bg-primary;
+    border-color: $color-border-medium;
+    transform: translateY(-1px);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .blessingGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-sm;
+  }
+  
+  .blessingOption {
+    padding: $spacing-md;
+  }
+  
+  .blessingImage {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .blessingGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .blessingOption {
+    padding: $spacing-sm;
+  }
+  
+  .blessingImage {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .blessingLabel {
+    font-size: 11px;
+  }
+}
+
+// Grid section styling
+.gridSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-md 0;
+  border-top: 1px solid $color-border-light;
+}
+
+.gridDescription {
+  font-size: 14px;
+  color: $color-text-secondary;
+  margin: 0;
+  text-align: center;
+}
+
+.isometricContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  position: relative;
+  background: $color-bg-primary;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-sm;
+}
+
+.isometricGrid {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.gridSquare {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 1px solid #999;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  transform: translate(-50%, -50%);
+  
+  &:hover {
+    border-color: $color-warning;
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 2;
+  }
+  
+  &.selected {
+    background: dodgerblue;
+    border-color: #1e90ff;
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.4);
+    z-index: 1;
+  }
+}
+
+.saveButton {
+  @include button-base;
+  background: $color-warning;
+  color: white;
+  border: 1px solid $color-warning;
+  padding: $spacing-sm $spacing-lg;
+  font-size: 14px;
+  font-weight: 500;
+  
+  &:hover:not(:disabled) {
+    background: darken($color-warning, 10%);
+    border-color: darken($color-warning, 10%);
+    transform: translateY(-1px);
+  }
+  
+  &:disabled {
+    background: $color-bg-secondary;
+    color: $color-text-secondary;
+    border-color: $color-border-light;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+// Special styling for blessing theme
+.blessingOption:hover .blessingImage {
+  filter: brightness(1.2) saturate(1.4) drop-shadow(0 0 8px rgba($color-warning, 0.3));
+}
+
+// Responsive adjustments for grid
+@media (max-width: $breakpoint-md) {
+  .isometricContainer {
+    min-height: 160px;
+  }
+  
+  .isometricGrid {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .gridSquare {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .isometricContainer {
+    min-height: 140px;
+  }
+  
+  .isometricGrid {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .gridSquare {
+    width: 14px;
+    height: 14px;
+  }
+}

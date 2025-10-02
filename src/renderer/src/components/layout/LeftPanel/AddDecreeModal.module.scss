@@ -1,0 +1,276 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.decreesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.decreeOption {
+  @include flex-column;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  border: 2px solid $color-border-light;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: $color-bg-primary;
+
+  &:hover {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &.typeBlood {
+    &.hover {
+      border-color: $color-blood;
+      background: rgba($color-blood, 0.05);
+    }
+  }
+
+  &.typeGreed {
+    &.hover {
+      border-color: $color-greed;
+      background: rgba($color-greed, 0.05);
+    }
+  }
+
+  &.typeNature {
+    &.hover {
+      border-color: $color-nature;
+      background: rgba($color-nature, 0.05);
+    }
+  }
+
+  &.typeNomads {
+    &.hover {
+      border-color: $color-nomads;
+      background: rgba($color-nomads, 0.05);
+    }
+  }
+
+  &.typeNothing {
+    &.hover {
+      border-color: $color-nothing;
+      background: rgba($color-nothing, 0.05);
+    }
+  }
+
+  &.typeProgress {
+    &.hover {
+      border-color: $color-progress;
+      background: rgba($color-progress, 0.05);
+    }
+  }
+
+  &.typeSpells {
+    &.hover {
+      border-color: $color-spells;
+      background: rgba($color-spells, 0.05);
+    }
+  }
+
+  &.typeStone {
+    &.hover {
+      border-color: $color-stone;
+      background: rgba($color-stone, 0.05);
+    }
+  }
+
+  &.typeSpecial {
+    &.hover {
+      border-color: $color-special;
+      background: rgba($color-special, 0.05);
+    }
+  }
+
+  &.typeCommon {
+    &.hover {
+      border-color: $color-common;
+      background: rgba($color-common, 0.05);
+    }
+  }
+
+}
+
+.decreeHeader {
+  @include flex-start;
+  gap: $spacing-sm;
+  align-items: center;
+}
+
+.decreeIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.decreeTitle {
+  @include flex-column;
+  gap: $spacing-xs;
+  flex: 1;
+}
+
+.decreeName {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.decreeType {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: $border-radius-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.typeBlood {
+    background: rgba($color-blood, 0.15);
+    color: $color-blood;
+  }
+
+  &.typeGreed {
+    background: rgba($color-greed, 0.15);
+    color: $color-greed;
+  }
+
+  &.typeNature {
+    background: rgba($color-nature, 0.15);
+    color: $color-nature;
+  }
+
+  &.typeNomads {
+    background: rgba($color-nomads, 0.15);
+    color: $color-nomads;
+  }
+
+  &.typeNothing {
+    background: rgba($color-nothing, 0.15);
+    color: $color-nothing;
+  }
+
+  &.typeProgress {
+    background: rgba($color-progress, 0.15);
+    color: $color-progress;
+  }
+
+  &.typeSpells {
+    background: rgba($color-spells, 0.15);
+    color: $color-spells;
+  }
+
+  &.typeStone {
+    background: rgba($color-stone, 0.15);
+    color: $color-stone;
+  }
+
+  &.typeSpecial {
+    background: rgba($color-special, 0.15);
+    color: $color-special;
+  }
+
+  &.typeCommon {
+    background: rgba($color-common, 0.15);
+    color: $color-common;
+  }
+}
+
+.decreeDescription {
+  font-size: 13px;
+  color: $color-text-secondary;
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+.addButton {
+  @include flex-center;
+  padding: $spacing-xs;
+  background: rgba($color-primary, 0.1);
+  border: 1px solid rgba($color-primary, 0.3);
+  border-radius: $border-radius-sm;
+  color: $color-primary;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: $spacing-xs;
+  transition: all 0.2s ease-in-out;
+
+  span {
+    pointer-events: none;
+  }
+}
+
+.decreeOption:hover .addButton {
+  background: $color-primary;
+  color: white;
+  border-color: $color-primary;
+}
+
+.modalFooter {
+  border-top: 1px solid $color-border-light;
+  padding-top: $spacing-md;
+  margin-top: $spacing-lg;
+}
+
+.footerNote {
+  font-size: 12px;
+  color: $color-text-secondary;
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .decreesGrid {
+    grid-template-columns: 1fr;
+    gap: $spacing-sm;
+  }
+
+  .decreeOption {
+    padding: $spacing-sm;
+  }
+
+  .decreeIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .decreeName {
+    font-size: 14px;
+  }
+
+  .decreeDescription {
+    font-size: 12px;
+  }
+}
+
+// Animation for grid items
+.decreeOption {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.decreeOption:nth-child(1) { animation-delay: 0.05s; }
+.decreeOption:nth-child(2) { animation-delay: 0.1s; }
+.decreeOption:nth-child(3) { animation-delay: 0.15s; }
+.decreeOption:nth-child(4) { animation-delay: 0.2s; }
+.decreeOption:nth-child(5) { animation-delay: 0.25s; }
+.decreeOption:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

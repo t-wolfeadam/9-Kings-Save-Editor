@@ -1,0 +1,127 @@
+.leftPanel {
+  height: 100%;
+  overflow-y: auto;
+  padding: $spacing-md;
+}
+
+.currencyDisplay {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: $color-bg-secondary;
+  border-radius: $border-radius-md;
+  align-items: center;
+}
+
+.coinIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.coinAmount {
+  font-size: 18px;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.kingSelector {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.kingFace {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  border: 2px solid $color-border-light;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  align-items: center;
+  
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  
+  span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  &:hover {
+    border-color: $color-secondary;
+    background: rgba($color-secondary, 0.1);
+  }
+  
+  &.active {
+    border-color: $color-blood;
+    background: rgba($color-blood, 0.1);
+    
+    span {
+      color: $color-blood;
+      font-weight: 600;
+    }
+  }
+}
+
+.decreesList {
+  @include flex-column;
+  gap: $spacing-sm;
+}
+
+.decree {
+  @include flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  background: white;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-sm;
+  align-items: center;
+  
+  img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+}
+
+.decreeInfo {
+  @include flex-column;
+  gap: $spacing-xs;
+  flex: 1;
+}
+
+.decreeName {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-primary;
+}
+
+.decreeStacks {
+  font-size: 11px;
+  color: $color-text-secondary;
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .leftPanel {
+    padding: $spacing-sm;
+  }
+  
+  .kingSelector {
+    flex-direction: row;
+    overflow-x: auto;
+    
+    .kingFace {
+      min-width: 100px;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      gap: $spacing-xs;
+    }
+  }
+}

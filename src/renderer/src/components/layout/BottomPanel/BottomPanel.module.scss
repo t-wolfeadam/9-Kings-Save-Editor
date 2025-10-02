@@ -1,0 +1,247 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.bottomPanel {
+  @include flex-between;
+  width: 100%;
+  height: 100%;
+  padding: $spacing-md;
+  background: white;
+  border-top: 1px solid $color-border-light;
+  gap: $spacing-md;
+}
+
+.handCards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  overflow: hidden;
+}
+
+.titleSection {
+  @include flex-between;
+  align-items: flex-end;
+  margin-bottom: $spacing-xs;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.handStats {
+  @include flex-start;
+  gap: $spacing-sm;
+  align-items: center;
+}
+
+.cardCount {
+  font-size: 11px;
+  color: $color-text-secondary;
+  font-weight: 500;
+  background: rgba($color-primary, 0.1);
+  padding: 2px 6px;
+  border-radius: $border-radius-sm;
+}
+
+.dragHint {
+  font-size: 10px;
+  color: $color-primary;
+  font-weight: 500;
+  font-style: italic;
+  opacity: 0.8;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.cardArea {
+  @include flex-start;
+  gap: $spacing-sm;
+  flex: 1;
+  min-height: 0; // Allow flexbox to shrink
+}
+
+.addButton {
+  flex-shrink: 0;
+}
+
+.handActions {
+  @include flex-start;
+  gap: $spacing-sm;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 120px;
+}
+
+.actionButton {
+  @include button-primary;
+  font-size: 12px;
+  padding: $spacing-sm $spacing-md;
+  transition: all 0.2s ease;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &.clearButton {
+    @include button-secondary;
+    
+    &:hover:not(:disabled) {
+      background: rgba($color-danger, 0.1);
+      border-color: $color-danger;
+      color: $color-danger;
+    }
+  }
+}
+
+// Legacy styles for backward compatibility (remove later)
+.cardList {
+  @include flex-start;
+  gap: $spacing-sm;
+  overflow-x: auto;
+  padding: $spacing-xs 0;
+}
+
+.cardSlot {
+  @include flex-column;
+  @include card-base;
+  @include card-hover;
+  min-width: 80px;
+  padding: $spacing-sm;
+  cursor: pointer;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.cardImage {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.cardName {
+  font-size: 10px;
+  text-align: center;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70px;
+}
+
+// Responsive design
+@media (max-width: $breakpoint-md) {
+  .bottomPanel {
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding: $spacing-sm;
+  }
+
+  .handCards {
+    order: 1;
+  }
+
+  .handActions {
+    order: 2;
+    flex-direction: row;
+    justify-content: center;
+    min-width: auto;
+  }
+
+  .titleSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-xs;
+  }
+
+  .handStats {
+    justify-content: center;
+  }
+
+  .cardArea {
+    justify-content: center;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .bottomPanel {
+    padding: $spacing-xs;
+  }
+
+  .handActions {
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+  }
+
+  .actionButton {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .title {
+    font-size: 12px;
+  }
+
+  .cardCount {
+    font-size: 10px;
+  }
+}
+
+// Animation for drag hint
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+// Animation for panel entrance
+@keyframes panelEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bottomPanel {
+  animation: panelEnter 0.3s ease-out;
+}
+
+// Focus states for accessibility
+.bottomPanel:focus-within {
+  .title {
+    color: $color-primary;
+  }
+}
+
+// State-based styling
+.bottomPanel.dragActive {
+  .handCards {
+    background: rgba($color-primary, 0.02);
+    border-radius: $border-radius-md;
+  }
+}
+
+.bottomPanel.maxCapacity {
+  .addButton {
+    opacity: 0.6;
+  }
+  
+  .cardCount {
+    background: rgba($color-warning, 0.2);
+    color: $color-warning;
+  }
+}
