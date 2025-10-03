@@ -48,7 +48,7 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
         const existingName = existingData.Name
         let blessingType = 0 // default to Baby Boom
         
-        // Map blessing name back to type number
+        // Map blessing name back to type number (based on the image number)
         const nameToType: { [key: string]: number } = {
           'BabyBoom': 0,
           'Illuminism': 1,
@@ -86,15 +86,26 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
     return im(`./assets/Blessing_0${type}.png`)
   }
 
-  const getBlessingDescription = (type: number) => {
+  const getBlessingPublicName = (type: number) => {
     const descriptions = {
-      0: 'BabyBoom',
+      0: 'Baby Boom',
       1: 'Illuminism',
-      2: 'MartialLaw', // Zenith
-      3: 'PeaceTime',
+      2: 'Zenith', // Display name for MartialLaw
+      3: 'Peace Time',
       4: 'Prosperity'
     }
     return descriptions[type as keyof typeof descriptions] || `Blessing ${type}`
+  }
+
+  const getBlessingInternalName = (type: number) => {
+    const internalNames = {
+      0: 'BabyBoom',
+      1: 'Illuminism',
+      2: 'MartialLaw',
+      3: 'PeaceTime',
+      4: 'Prosperity'
+    }
+    return internalNames[type as keyof typeof internalNames] || `Unknown${type}`
   }
 
   const handleBlessingSelect = (type: number) => {
@@ -127,7 +138,7 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
     const areas = selectedSquares.map(square => ({ x: square.x, y: square.y }))
     
     const blessingData = {
-      Name: getBlessingDescription(currentBlessingType),
+      Name: getBlessingInternalName(currentBlessingType),
       Areas: areas
     }
     
@@ -169,7 +180,7 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
                 className={styles.blessingImage}
               />
               <span className={styles.blessingLabel}>
-                {getBlessingDescription(type)}
+                {getBlessingPublicName(type)}
               </span>
             </div>
           ))}
