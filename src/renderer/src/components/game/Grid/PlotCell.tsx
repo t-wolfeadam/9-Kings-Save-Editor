@@ -69,7 +69,7 @@ const PlotCell: React.FC<PlotCellProps> = ({
     <div
       className={`${styles.plotCell} ${styles[plotState]}`}
       style={{
-        transform: `translate(${(x - y) * 32}px, ${(x + y) * 16}px)`,
+        transform: `translate(${(x + y) * 32}px, ${(x - y) * 16}px)`,
         cursor: getConstructionCursor()
       }}
       onClick={handleClick}
