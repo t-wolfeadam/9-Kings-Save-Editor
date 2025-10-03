@@ -56,7 +56,7 @@
         "imagePath": "./assets/Card_Blood_06.png"
     },
     {
-        "name": "Demons_Altar",
+        "name": "Demon's Altar",
         "displayName": "Demon's Altar",
         "type": "tower",
         "king": "Blood",
@@ -80,7 +80,7 @@
         "imagePath": "./assets/Card_Greed_00.png"
     },
     {
-        "name": "Over_invest",
+        "name": "OverInvest",
         "displayName": "Over-invest",
         "type": "enchantment",
         "king": "Greed",
@@ -112,7 +112,7 @@
         "imagePath": "./assets/Card_Greed_04.png"
     },
     {
-        "name": "Midas_Touch",
+        "name": "Midas Touch",
         "displayName": "Midas Touch",
         "type": "",
         "king": "Greed",
@@ -136,8 +136,8 @@
         "imagePath": "./assets/Card_Greed_07.png"
     },
     {
-        "name": "Mortage",
-        "displayName": "Mortage",
+        "name": "Mortgage",
+        "displayName": "Mortgage",
         "type": "tome",
         "king": "Greed",
         "description": "Destroy target plot to receive to gold for each level it had.",
@@ -168,7 +168,7 @@
         "imagePath": "./assets/Card_Nature_02.png"
     },
     {
-        "name": "Mycelium",
+        "name": "Spore",
         "displayName": "Mycelium",
         "type": "building",
         "king": "Nature",
@@ -184,7 +184,7 @@
         "imagePath": "./assets/Card_Nature_04.png"
     },
     {
-        "name": "Poison_Vial",
+        "name": "Venom",
         "displayName": "Poison Vial",
         "type": "enchantment",
         "king": "Nature",
@@ -232,7 +232,7 @@
         "imagePath": "./assets/Card_Nomads_01.png"
     },
     {
-        "name": "Dragons_Den",
+        "name": "Dragon's Den",
         "displayName": "Dragon's Den",
         "type": "tower",
         "king": "Nomads",
@@ -256,7 +256,7 @@
         "imagePath": "./assets/Card_Nomads_04.png"
     },
     {
-        "name": "Frost",
+        "name": "Freeze",
         "displayName": "Frost",
         "type": "enchantment",
         "king": "Nomads",
@@ -296,7 +296,7 @@
         "imagePath": "./assets/Card_Nothing_00.png"
     },
     {
-        "name": "Steel_Coat",
+        "name": "Steel Coat",
         "displayName": "Steel Coat",
         "type": "enchantment",
         "king": "Nothing",
@@ -328,7 +328,7 @@
         "imagePath": "./assets/Card_Nothing_04.png"
     },
     {
-        "name": "Scout_Tower",
+        "name": "Scout Tower",
         "displayName": "Scout Tower",
         "type": "tower",
         "king": "Nothing",
@@ -416,7 +416,7 @@
         "imagePath": "./assets/Card_Progress_06.png"
     },
     {
-        "name": "Lab_Rat",
+        "name": "Lab Rat",
         "displayName": "Lab Rat",
         "type": "troop",
         "king": "Progress",
@@ -520,7 +520,7 @@
         "imagePath": "./assets/Card_Special_12.png"
     },
     {
-        "name": "X_Ray",
+        "name": "XRay",
         "displayName": "X-Ray",
         "type": "tome",
         "king": "Special",
@@ -632,7 +632,7 @@
         "imagePath": "./assets/Card_Stone_03.png"
     },
     {
-        "name": "Wallmaker",
+        "name": "WallMaker",
         "displayName": "Wallmaker",
         "type": "building",
         "king": "Stone",
@@ -640,8 +640,8 @@
         "imagePath": "./assets/Card_Stone_04.png"
     },
     {
-        "name": "Flamethrower",
-        "displayName": "Flamethrower",
+        "name": "Flametower",
+        "displayName": "Flametower",
         "type": "tower",
         "king": "Stone",
         "description": "A mobile tower that moves onto the battlefield to burn enemies.",

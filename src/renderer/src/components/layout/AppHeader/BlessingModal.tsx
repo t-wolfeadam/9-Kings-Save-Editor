@@ -50,10 +50,10 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
         
         // Map blessing name back to type number
         const nameToType: { [key: string]: number } = {
-          'Baby Boom': 0,
+          'BabyBoom': 0,
           'Illuminism': 1,
-          'Zenith': 2,
-          'Peacetime': 3,
+          'MartialLaw': 2, // Zenith
+          'PeaceTime': 3,
           'Prosperity': 4
         }
         
@@ -88,10 +88,10 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
 
   const getBlessingDescription = (type: number) => {
     const descriptions = {
-      0: 'Baby Boom',
+      0: 'BabyBoom',
       1: 'Illuminism',
-      2: 'Zenith',
-      3: 'Peacetime',
+      2: 'MartialLaw', // Zenith
+      3: 'PeaceTime',
       4: 'Prosperity'
     }
     return descriptions[type as keyof typeof descriptions] || `Blessing ${type}`
@@ -131,7 +131,7 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
       Areas: areas
     }
     
-    console.log('Saving blessing data:', blessingData) // Debug log
+    //console.log('Saving blessing data:', blessingData) // Debug log
     updateBlessing(blessingData)
     
     // Call the original onBlessingSelect if provided, to update external state
