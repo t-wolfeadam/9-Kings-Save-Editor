@@ -1,22 +1,23 @@
 # 9 Kings Save Editor
 
-A (mostly complete) (unofficial) save game editor for the game 9 Kings by Sad Socket.
+A *(mostly complete) (unofficial)* save game editor for the game 9 Kings by Sad Socket.
 
 Given its sandbox nature, consider the use of this app to be cheating.
 
-Disclaimer #1: There's little to no validation on the inputs you set, so it's possible to put the game in a state the devs weren't expecting for.
+**Disclaimer #1:** There's little to no validation on the inputs you set, so it's possible to put the game in a state the devs weren't expecting for.
 
-Disclaimer #2: The game does track global stats (win counts, units killed, coins spent, card placement counts), so expect those to get messed up depending on your level of usage.
+**Disclaimer #2:** The game does track global stats (win counts, units killed, coins spent, card placement counts), so expect those to get messed up depending on your level of usage.
 
 ## Usage
 
 Once launched, use the 'Open save file' button (top-right) and select your save game:
 
-  %USERPROFILE%\AppData\LocalLow\SadSocket\9Kings
+  `%USERPROFILE%\AppData\LocalLow\SadSocket\9Kings\GameSnapshot.json`
 
 Here's an example of what you'll see after loading it:
 
-<IMAGE>
+<img width="1920" height="945" alt="application" src="https://github.com/user-attachments/assets/f3ea07fe-f7af-40b2-9177-a9235bc51268" />
+
 
 You can...
 
@@ -61,17 +62,12 @@ Feel free to post issues. Feel even more free to make pull requests with any typ
 
 1. Clone the repository and install dependencies:
    ```bash
-   git clone <repository-url>
-   cd 9KingsApp
+   git clone https://github.com/t-wolfeadam/9-Kings-Save-Editor.git
+   cd 9-Kings-Save-Editor
    npm install
    ```
 
-2. Build the application:
-   ```bash
-   npm run build
-   ```
-
-3. Create distributable packages:
+2. Build and create distributable packages:
    - **Windows:** `npm run build:win` (creates installer and portable .exe)
    - **macOS:** `npm run build:mac` (creates .dmg)
    - **Linux:** `npm run build:linux` (creates AppImage, snap, deb)
