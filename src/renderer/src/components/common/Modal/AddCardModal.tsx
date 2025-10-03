@@ -19,7 +19,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({
   const { addCard } = useCardContext();
   
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFaction, setSelectedFaction] = useState<'All' | 'Nothing' | 'Spells' | 'Blood' | 'Greed' | 'Nature' | 'Progress' | 'Stone' | 'Nomads' | 'Time' >('All');
+  const [selectedFaction, setSelectedFaction] = useState<'All' | 'Special' | 'Nothing' | 'Spells' | 'Blood' | 'Greed' | 'Nature' | 'Progress' | 'Stone' | 'Nomads' | 'Time' >('All');
 
   // Filter cards based on search and faction
   const filteredCards = useMemo(() => {
@@ -50,7 +50,8 @@ const AddCardModal: React.FC<AddCardModalProps> = ({
       Progress: getCardsByType('Progress'),
       Stone: getCardsByType('Stone'),
       Nomads: getCardsByType('Nomads'),
-      Time: getCardsByType('Time')
+      Time: getCardsByType('Time'),
+      Special: getCardsByType('Special')
     };
     
     // Apply search filter to each group if needed
@@ -118,7 +119,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({
       isOpen={isOpen}
       onClose={handleClose}
       title="Add Card to Hand"
-      size="large"
+      size="extralarge"
     >
       <div className={styles.modalContent}>
         {/* Search and Filter Controls */}
@@ -135,7 +136,7 @@ const AddCardModal: React.FC<AddCardModalProps> = ({
           </div>
           
           <div className={styles.factionFilters}>
-            {['All', 'Nothing', 'Spells', 'Blood', 'Greed', 'Nature', 'Progress', 'Stone', 'Nomads', 'Time'].map((faction) => (
+            {['All', 'Nothing', 'Spells', 'Blood', 'Greed', 'Nature', 'Progress', 'Stone', 'Nomads', 'Time', 'Special'].map((faction) => (
               <button
                 key={faction}
                 className={`

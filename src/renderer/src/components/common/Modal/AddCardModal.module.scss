@@ -116,6 +116,12 @@
     border-color: $color-time;
   }
 
+  &[data-faction="special"].active {
+    // use primary 'special' color with outer part like the king's eye :)
+    background: radial-gradient(circle, $color-special 0%, $color-special 60%, rgba(39,72,140,1) 80%, rgba(156, 104, 32, 1) 85%, rgba(68, 129, 51, 1) 90%, rgba(238, 165, 16, 1) 95%, rgba(73, 129, 49, 1) 100%);
+    border-color: $color-special;
+  }
+
   &[data-faction="all"].active {
     background: $color-primary;
   }

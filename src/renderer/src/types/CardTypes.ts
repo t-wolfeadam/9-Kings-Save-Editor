@@ -1,6 +1,6 @@
 import { im } from "@renderer/utils/image";
 import rawCardInfo from "../card_info.json";
-import { PlayableKingType } from './GameSaveData';
+import { KingType, PlayableKingType } from './GameSaveData';
 
 // Card-related types for the card management system
 
@@ -49,7 +49,7 @@ export const getCardInfo = (cardName: string): CardInfo | undefined => {
   return AVAILABLE_CARDS.find(card => card.name === cardName || card.displayName == cardName);
 };
 
-export const getCardsByType = (king: PlayableKingType): CardInfo[] => {
+export const getCardsByType = (king: KingType): CardInfo[] => {
   return AVAILABLE_CARDS.filter(card => card.king === king);
 };
 

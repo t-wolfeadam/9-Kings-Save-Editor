@@ -40,6 +40,11 @@
     width: 100%;
     max-width: 800px;
   }
+
+  &.modalContent--extralarge {
+    width: 100%;
+    max-width: 1000px;
+  }
 }
 
 .modalHeader {
