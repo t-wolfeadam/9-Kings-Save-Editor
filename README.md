@@ -47,6 +47,7 @@ Important: Only make changes while in the main menu (or with the game closed). T
 - The UI isn't intended for anything but 1080p screens; mostly affects visibility of the battle field
 - Need validation for anything game-breaking; known issues:
   - Enabling all kings and then entering a diplomacy-war event leaves no options to choose from, requiring a force quit to get out of it
+  - Removing all cards from your hand leaves no way to start a round
 
 ## Contributing
 
