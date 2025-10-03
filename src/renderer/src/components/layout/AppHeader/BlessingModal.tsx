@@ -108,6 +108,17 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
     return internalNames[type as keyof typeof internalNames] || `Unknown${type}`
   }
 
+  const getBlessingDescription = (type: number) => {
+    const internalNames = {
+      0: 'Doubles the number of units of the Troop card on the targed plot.',
+      1: 'The cards on the target plot will level up.',
+      2: 'Doubles the damage of the card on the target plot.',
+      3: 'Doubles the HP of the card on the target plot.',
+      4: 'If you have less than 20 Gold multiplies the value by 9.'
+    }
+    return internalNames[type as keyof typeof internalNames] || 'Unknown'
+  }
+
   const handleBlessingSelect = (type: number) => {
     setCurrentBlessingType(type)
     // Don't call onBlessingSelect here to avoid it closing the modal; handled internally on save button
@@ -174,13 +185,16 @@ const BlessingModal: React.FC<BlessingModalProps> = ({
               }`}
               onClick={() => handleBlessingSelect(type)}
             >
+              <span className={styles.blessingLabel}>
+                {getBlessingPublicName(type)}
+              </span>
               <img
                 src={getBlessingIcon(type)}
                 alt={`Blessing ${type}`}
                 className={styles.blessingImage}
               />
-              <span className={styles.blessingLabel}>
-                {getBlessingPublicName(type)}
+              <span className={styles.blessingDescription}>
+                {getBlessingDescription(type)}
               </span>
             </div>
           ))}

@@ -4,7 +4,7 @@
 .blessingEditor {
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $spacing-sm;
   min-height: 300px;
 }
 
@@ -24,7 +24,7 @@
 .blessingOption {
   @include flex-center;
   flex-direction: column;
-  padding: $spacing-lg;
+  padding: $spacing-sm;
   border: 2px solid $color-border-light;
   border-radius: $border-radius-md;
   cursor: pointer;
@@ -72,11 +72,19 @@
 }
 
 .blessingLabel {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  color: $color-text-secondary;
+  color: $color-text-primary;
   text-align: center;
   line-height: 1.3;
+}
+
+.blessingDescription {
+  font-size: 12px;
+  font-weight: 400;
+  color: $color-text-secondary;
+  text-align: center;
+  line-height: 1;
 }
 
 .actions {
